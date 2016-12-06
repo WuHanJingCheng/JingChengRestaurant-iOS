@@ -1,0 +1,1047 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B252E3E1DE53E9700F8CA3C /* DIYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B252E3D1DE53E9700F8CA3C /* DIYButton.swift */; };
+		8B252E401DE5573200F8CA3C /* JCMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B252E3F1DE5573200F8CA3C /* JCMenuHeaderView.swift */; };
+		8B252E421DE55B9400F8CA3C /* JCMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B252E411DE55B9400F8CA3C /* JCMenuCell.swift */; };
+		8B252E441DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B252E431DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift */; };
+		8B252E461DE56D8300F8CA3C /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B252E451DE56D8300F8CA3C /* HttpManager.swift */; };
+		8B2E2A131DE42A3700044433 /* JCLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E2A121DE42A3700044433 /* JCLeftCell.swift */; };
+		8B420A601DEC1D1A00194B32 /* JCDishDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */; };
+		8B5D7A011DED66C60088B73A /* JCEmptyBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D7A001DED66C60088B73A /* JCEmptyBackground.swift */; };
+		8B930E7B1DE3D7A100A09227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930E7A1DE3D7A100A09227 /* AppDelegate.swift */; };
+		8B930E821DE3D7A100A09227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B930E811DE3D7A100A09227 /* Assets.xcassets */; };
+		8B930E851DE3D7A100A09227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B930E831DE3D7A100A09227 /* LaunchScreen.storyboard */; };
+		8B930E901DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930E8F1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.swift */; };
+		8B930E9B1DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930E9A1DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.swift */; };
+		8B930EB81DE3DA2600A09227 /* JCLeftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EB71DE3DA2600A09227 /* JCLeftController.swift */; };
+		8B930EBA1DE3DA5200A09227 /* JCLeftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EB91DE3DA5200A09227 /* JCLeftModel.swift */; };
+		8B930EBE1DE3DA7F00A09227 /* JCRightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EBD1DE3DA7F00A09227 /* JCRightController.swift */; };
+		8B930EC01DE3DA8D00A09227 /* JCRightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EBF1DE3DA8D00A09227 /* JCRightModel.swift */; };
+		8B930EC21DE3DA9F00A09227 /* JCRightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EC11DE3DA9F00A09227 /* JCRightViewModel.swift */; };
+		8B930EC41DE3DAC500A09227 /* JCTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EC31DE3DAC500A09227 /* JCTopView.swift */; };
+		8B930ECC1DE3DBE100A09227 /* JCLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EC71DE3DBE100A09227 /* JCLoginController.swift */; };
+		8B930ECD1DE3DBE100A09227 /* JCAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930ECA1DE3DBE100A09227 /* JCAccountView.swift */; };
+		8B930ECE1DE3DBE100A09227 /* JCPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930ECB1DE3DBE100A09227 /* JCPasswordView.swift */; };
+		8B930ED41DE3DBEA00A09227 /* JCTableNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930ED11DE3DBEA00A09227 /* JCTableNumberController.swift */; };
+		8B930ED61DE3DCB700A09227 /* SwiftHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930ED51DE3DCB700A09227 /* SwiftHeader.swift */; };
+		8B930EDE1DE3E41500A09227 /* JCHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930EDD1DE3E41500A09227 /* JCHomeController.swift */; };
+		8B938A991DE67CAE00DC609C /* JCOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B938A981DE67CAE00DC609C /* JCOrderCell.swift */; };
+		8B938A9B1DE6D00900DC609C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B938A9A1DE6D00900DC609C /* API.swift */; };
+		8B938A9D1DE6DF9A00DC609C /* JCDishManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B938A9C1DE6DF9A00DC609C /* JCDishManager.swift */; };
+		8B9514D61DE51E7D008D4D63 /* JCMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514D51DE51E7D008D4D63 /* JCMenuController.swift */; };
+		8B9514D81DE51E90008D4D63 /* JCRecommendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514D71DE51E90008D4D63 /* JCRecommendController.swift */; };
+		8B9514DA1DE51EAE008D4D63 /* JCOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514D91DE51EAE008D4D63 /* JCOrderController.swift */; };
+		8B9514DC1DE51ED2008D4D63 /* JCDishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514DB1DE51ED2008D4D63 /* JCDishModel.swift */; };
+		8B9514DE1DE51EED008D4D63 /* JCMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514DD1DE51EED008D4D63 /* JCMenuViewModel.swift */; };
+		8B9514E01DE51F00008D4D63 /* JCRecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514DF1DE51F00008D4D63 /* JCRecommendViewModel.swift */; };
+		8B9514E41DE522EC008D4D63 /* JCMenuHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514E31DE522EC008D4D63 /* JCMenuHeaderCell.swift */; };
+		8B9515041DE53274008D4D63 /* JCMenuHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9515031DE53274008D4D63 /* JCMenuHeaderModel.swift */; };
+		8BB10ADC1DEE6852002302E1 /* JCExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB10ADB1DEE6852002302E1 /* JCExitView.swift */; };
+		8BB6C2DE1DEEAF1200C18186 /* JCLeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB6C2DD1DEEAF1200C18186 /* JCLeftViewModel.swift */; };
+		D9734FF158852CB01776BD62 /* Pods_JingChengWirelessOrderForDishes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879C47B43F4171D2368E441 /* Pods_JingChengWirelessOrderForDishes.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B930E8C1DE3D7A200A09227 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B930E6F1DE3D7A100A09227 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B930E761DE3D7A100A09227;
+			remoteInfo = JingChengWirelessOrderForDishes;
+		};
+		8B930E971DE3D7A200A09227 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B930E6F1DE3D7A100A09227 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B930E761DE3D7A100A09227;
+			remoteInfo = JingChengWirelessOrderForDishes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		51C5C60A149B65D90E1EEBD8 /* Pods-JingChengWirelessOrderForDishes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JingChengWirelessOrderForDishes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JingChengWirelessOrderForDishes/Pods-JingChengWirelessOrderForDishes.debug.xcconfig"; sourceTree = "<group>"; };
+		8B252E3D1DE53E9700F8CA3C /* DIYButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYButton.swift; sourceTree = "<group>"; };
+		8B252E3F1DE5573200F8CA3C /* JCMenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuHeaderView.swift; sourceTree = "<group>"; };
+		8B252E411DE55B9400F8CA3C /* JCMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuCell.swift; sourceTree = "<group>"; };
+		8B252E431DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuHeaderViewModel.swift; sourceTree = "<group>"; };
+		8B252E451DE56D8300F8CA3C /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		8B2E2A121DE42A3700044433 /* JCLeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLeftCell.swift; sourceTree = "<group>"; };
+		8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDishDetailView.swift; sourceTree = "<group>"; };
+		8B5D7A001DED66C60088B73A /* JCEmptyBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCEmptyBackground.swift; sourceTree = "<group>"; };
+		8B930E771DE3D7A100A09227 /* JingChengWirelessOrderForDishes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingChengWirelessOrderForDishes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B930E7A1DE3D7A100A09227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B930E811DE3D7A100A09227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B930E841DE3D7A100A09227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B930E861DE3D7A100A09227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B930E8B1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JingChengWirelessOrderForDishesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B930E8F1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JingChengWirelessOrderForDishesTests.swift; sourceTree = "<group>"; };
+		8B930E911DE3D7A200A09227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B930E961DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JingChengWirelessOrderForDishesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B930E9A1DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JingChengWirelessOrderForDishesUITests.swift; sourceTree = "<group>"; };
+		8B930E9C1DE3D7A200A09227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B930EB71DE3DA2600A09227 /* JCLeftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLeftController.swift; sourceTree = "<group>"; };
+		8B930EB91DE3DA5200A09227 /* JCLeftModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLeftModel.swift; sourceTree = "<group>"; };
+		8B930EBD1DE3DA7F00A09227 /* JCRightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCRightController.swift; sourceTree = "<group>"; };
+		8B930EBF1DE3DA8D00A09227 /* JCRightModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCRightModel.swift; sourceTree = "<group>"; };
+		8B930EC11DE3DA9F00A09227 /* JCRightViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCRightViewModel.swift; sourceTree = "<group>"; };
+		8B930EC31DE3DAC500A09227 /* JCTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCTopView.swift; sourceTree = "<group>"; };
+		8B930EC71DE3DBE100A09227 /* JCLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLoginController.swift; sourceTree = "<group>"; };
+		8B930ECA1DE3DBE100A09227 /* JCAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCAccountView.swift; sourceTree = "<group>"; };
+		8B930ECB1DE3DBE100A09227 /* JCPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCPasswordView.swift; sourceTree = "<group>"; };
+		8B930ED11DE3DBEA00A09227 /* JCTableNumberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCTableNumberController.swift; sourceTree = "<group>"; };
+		8B930ED51DE3DCB700A09227 /* SwiftHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHeader.swift; sourceTree = "<group>"; };
+		8B930EDD1DE3E41500A09227 /* JCHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCHomeController.swift; sourceTree = "<group>"; };
+		8B938A981DE67CAE00DC609C /* JCOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCOrderCell.swift; sourceTree = "<group>"; };
+		8B938A9A1DE6D00900DC609C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Header/API.swift; sourceTree = "<group>"; };
+		8B938A9C1DE6DF9A00DC609C /* JCDishManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDishManager.swift; sourceTree = "<group>"; };
+		8B9514D51DE51E7D008D4D63 /* JCMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuController.swift; sourceTree = "<group>"; };
+		8B9514D71DE51E90008D4D63 /* JCRecommendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCRecommendController.swift; sourceTree = "<group>"; };
+		8B9514D91DE51EAE008D4D63 /* JCOrderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCOrderController.swift; sourceTree = "<group>"; };
+		8B9514DB1DE51ED2008D4D63 /* JCDishModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDishModel.swift; sourceTree = "<group>"; };
+		8B9514DD1DE51EED008D4D63 /* JCMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuViewModel.swift; sourceTree = "<group>"; };
+		8B9514DF1DE51F00008D4D63 /* JCRecommendViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCRecommendViewModel.swift; sourceTree = "<group>"; };
+		8B9514E31DE522EC008D4D63 /* JCMenuHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuHeaderCell.swift; sourceTree = "<group>"; };
+		8B9515031DE53274008D4D63 /* JCMenuHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuHeaderModel.swift; sourceTree = "<group>"; };
+		8BB10ADB1DEE6852002302E1 /* JCExitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCExitView.swift; sourceTree = "<group>"; };
+		8BB6C2DD1DEEAF1200C18186 /* JCLeftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLeftViewModel.swift; sourceTree = "<group>"; };
+		D879C47B43F4171D2368E441 /* Pods_JingChengWirelessOrderForDishes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JingChengWirelessOrderForDishes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF77C5DAAB04CCE47ED7BED1 /* Pods-JingChengWirelessOrderForDishes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JingChengWirelessOrderForDishes.release.xcconfig"; path = "Pods/Target Support Files/Pods-JingChengWirelessOrderForDishes/Pods-JingChengWirelessOrderForDishes.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B930E741DE3D7A100A09227 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9734FF158852CB01776BD62 /* Pods_JingChengWirelessOrderForDishes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B930E881DE3D7A200A09227 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B930E931DE3D7A200A09227 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EB8C6EC3E5882D361EF8CF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51C5C60A149B65D90E1EEBD8 /* Pods-JingChengWirelessOrderForDishes.debug.xcconfig */,
+				EF77C5DAAB04CCE47ED7BED1 /* Pods-JingChengWirelessOrderForDishes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5E4B88E64EA73D941D1F780D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D879C47B43F4171D2368E441 /* Pods_JingChengWirelessOrderForDishes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B930E6E1DE3D7A100A09227 = {
+			isa = PBXGroup;
+			children = (
+				8B930E791DE3D7A100A09227 /* JingChengWirelessOrderForDishes */,
+				8B930E8E1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests */,
+				8B930E991DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests */,
+				8B930E781DE3D7A100A09227 /* Products */,
+				0EB8C6EC3E5882D361EF8CF8 /* Pods */,
+				5E4B88E64EA73D941D1F780D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8B930E781DE3D7A100A09227 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B930E771DE3D7A100A09227 /* JingChengWirelessOrderForDishes.app */,
+				8B930E8B1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.xctest */,
+				8B930E961DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B930E791DE3D7A100A09227 /* JingChengWirelessOrderForDishes */ = {
+			isa = PBXGroup;
+			children = (
+				8B930E7A1DE3D7A100A09227 /* AppDelegate.swift */,
+				8B930EA81DE3DA0E00A09227 /* Classes */,
+				8B930E811DE3D7A100A09227 /* Assets.xcassets */,
+				8B930E831DE3D7A100A09227 /* LaunchScreen.storyboard */,
+				8B930E861DE3D7A100A09227 /* Info.plist */,
+			);
+			path = JingChengWirelessOrderForDishes;
+			sourceTree = "<group>";
+		};
+		8B930E8E1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B930E8F1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.swift */,
+				8B930E911DE3D7A200A09227 /* Info.plist */,
+			);
+			path = JingChengWirelessOrderForDishesTests;
+			sourceTree = "<group>";
+		};
+		8B930E991DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B930E9A1DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.swift */,
+				8B930E9C1DE3D7A200A09227 /* Info.plist */,
+			);
+			path = JingChengWirelessOrderForDishesUITests;
+			sourceTree = "<group>";
+		};
+		8B930EA81DE3DA0E00A09227 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8B938A9A1DE6D00900DC609C /* API.swift */,
+				8B930ED91DE3E40800A09227 /* Home */,
+				8B930ECF1DE3DBEA00A09227 /* Table */,
+				8B930EC51DE3DBE100A09227 /* Login */,
+				8B930EA91DE3DA0E00A09227 /* Header */,
+				8B930EAA1DE3DA0E00A09227 /* Left */,
+				8B930EAE1DE3DA0E00A09227 /* Network */,
+				8B930EAF1DE3DA0E00A09227 /* Right */,
+				8B930EB31DE3DA0E00A09227 /* Top */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8B930EA91DE3DA0E00A09227 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				8B930ED51DE3DCB700A09227 /* SwiftHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		8B930EAA1DE3DA0E00A09227 /* Left */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EAB1DE3DA0E00A09227 /* Model */,
+				8B930EAC1DE3DA0E00A09227 /* View */,
+				8B930EAD1DE3DA0E00A09227 /* ViewModel */,
+			);
+			path = Left;
+			sourceTree = "<group>";
+		};
+		8B930EAB1DE3DA0E00A09227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EB91DE3DA5200A09227 /* JCLeftModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B930EAC1DE3DA0E00A09227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EB71DE3DA2600A09227 /* JCLeftController.swift */,
+				8B2E2A121DE42A3700044433 /* JCLeftCell.swift */,
+				8BB10ADB1DEE6852002302E1 /* JCExitView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B930EAD1DE3DA0E00A09227 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8BB6C2DD1DEEAF1200C18186 /* JCLeftViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B930EAE1DE3DA0E00A09227 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8B252E451DE56D8300F8CA3C /* HttpManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8B930EAF1DE3DA0E00A09227 /* Right */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514D11DE51E2D008D4D63 /* Order */,
+				8B9514C91DE51E04008D4D63 /* Recommend */,
+				8B9514C51DE51DFB008D4D63 /* Menu */,
+				8B930EB01DE3DA0E00A09227 /* Model */,
+				8B930EB11DE3DA0E00A09227 /* View */,
+				8B930EB21DE3DA0E00A09227 /* ViewModel */,
+			);
+			path = Right;
+			sourceTree = "<group>";
+		};
+		8B930EB01DE3DA0E00A09227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EBF1DE3DA8D00A09227 /* JCRightModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B930EB11DE3DA0E00A09227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EBD1DE3DA7F00A09227 /* JCRightController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B930EB21DE3DA0E00A09227 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EC11DE3DA9F00A09227 /* JCRightViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B930EB31DE3DA0E00A09227 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EB41DE3DA0E00A09227 /* Model */,
+				8B930EB51DE3DA0E00A09227 /* View */,
+				8B930EB61DE3DA0E00A09227 /* ViewModel */,
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		8B930EB41DE3DA0E00A09227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B930EB51DE3DA0E00A09227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EC31DE3DAC500A09227 /* JCTopView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B930EB61DE3DA0E00A09227 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B930EC51DE3DBE100A09227 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EC61DE3DBE100A09227 /* Controller */,
+				8B930EC81DE3DBE100A09227 /* Model */,
+				8B930EC91DE3DBE100A09227 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8B930EC61DE3DBE100A09227 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EC71DE3DBE100A09227 /* JCLoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8B930EC81DE3DBE100A09227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B930EC91DE3DBE100A09227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B930ECA1DE3DBE100A09227 /* JCAccountView.swift */,
+				8B930ECB1DE3DBE100A09227 /* JCPasswordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B930ECF1DE3DBEA00A09227 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				8B930ED01DE3DBEA00A09227 /* Controller */,
+				8B930ED21DE3DBEA00A09227 /* Model */,
+				8B930ED31DE3DBEA00A09227 /* View */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		8B930ED01DE3DBEA00A09227 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B930ED11DE3DBEA00A09227 /* JCTableNumberController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8B930ED21DE3DBEA00A09227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B930ED31DE3DBEA00A09227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B930ED91DE3E40800A09227 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EDA1DE3E40800A09227 /* Model */,
+				8B930EDB1DE3E40800A09227 /* View */,
+				8B930EDC1DE3E40800A09227 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8B930EDA1DE3E40800A09227 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B930EDB1DE3E40800A09227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B930EDD1DE3E41500A09227 /* JCHomeController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B930EDC1DE3E40800A09227 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B9514C51DE51DFB008D4D63 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514C61DE51DFB008D4D63 /* Model */,
+				8B9514C71DE51DFB008D4D63 /* View */,
+				8B9514C81DE51DFB008D4D63 /* ViewModel */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		8B9514C61DE51DFB008D4D63 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B938A9C1DE6DF9A00DC609C /* JCDishManager.swift */,
+				8B9514DB1DE51ED2008D4D63 /* JCDishModel.swift */,
+				8B9515031DE53274008D4D63 /* JCMenuHeaderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B9514C71DE51DFB008D4D63 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514D51DE51E7D008D4D63 /* JCMenuController.swift */,
+				8B9514E31DE522EC008D4D63 /* JCMenuHeaderCell.swift */,
+				8B252E3F1DE5573200F8CA3C /* JCMenuHeaderView.swift */,
+				8B252E411DE55B9400F8CA3C /* JCMenuCell.swift */,
+				8B252E3D1DE53E9700F8CA3C /* DIYButton.swift */,
+				8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B9514C81DE51DFB008D4D63 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514DD1DE51EED008D4D63 /* JCMenuViewModel.swift */,
+				8B252E431DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B9514C91DE51E04008D4D63 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514CA1DE51E04008D4D63 /* Model */,
+				8B9514CB1DE51E04008D4D63 /* View */,
+				8B9514CC1DE51E04008D4D63 /* ViewModel */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		8B9514CA1DE51E04008D4D63 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B9514CB1DE51E04008D4D63 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514D71DE51E90008D4D63 /* JCRecommendController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B9514CC1DE51E04008D4D63 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514DF1DE51F00008D4D63 /* JCRecommendViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B9514D11DE51E2D008D4D63 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514D21DE51E2D008D4D63 /* Model */,
+				8B9514D31DE51E2D008D4D63 /* View */,
+				8B9514D41DE51E2D008D4D63 /* ViewModel */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		8B9514D21DE51E2D008D4D63 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B9514D31DE51E2D008D4D63 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B9514D91DE51EAE008D4D63 /* JCOrderController.swift */,
+				8B938A981DE67CAE00DC609C /* JCOrderCell.swift */,
+				8B5D7A001DED66C60088B73A /* JCEmptyBackground.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B9514D41DE51E2D008D4D63 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B930E761DE3D7A100A09227 /* JingChengWirelessOrderForDishes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B930E9F1DE3D7A200A09227 /* Build configuration list for PBXNativeTarget "JingChengWirelessOrderForDishes" */;
+			buildPhases = (
+				340CFED65492901B63A3F8EC /* [CP] Check Pods Manifest.lock */,
+				8B930E731DE3D7A100A09227 /* Sources */,
+				8B930E741DE3D7A100A09227 /* Frameworks */,
+				8B930E751DE3D7A100A09227 /* Resources */,
+				3DF0ACD91BFFFC07CA46ACBF /* [CP] Embed Pods Frameworks */,
+				843779F7BA2F1B28B3B0F444 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JingChengWirelessOrderForDishes;
+			productName = JingChengWirelessOrderForDishes;
+			productReference = 8B930E771DE3D7A100A09227 /* JingChengWirelessOrderForDishes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B930E8A1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B930EA21DE3D7A200A09227 /* Build configuration list for PBXNativeTarget "JingChengWirelessOrderForDishesTests" */;
+			buildPhases = (
+				8B930E871DE3D7A200A09227 /* Sources */,
+				8B930E881DE3D7A200A09227 /* Frameworks */,
+				8B930E891DE3D7A200A09227 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B930E8D1DE3D7A200A09227 /* PBXTargetDependency */,
+			);
+			name = JingChengWirelessOrderForDishesTests;
+			productName = JingChengWirelessOrderForDishesTests;
+			productReference = 8B930E8B1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B930E951DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B930EA51DE3D7A200A09227 /* Build configuration list for PBXNativeTarget "JingChengWirelessOrderForDishesUITests" */;
+			buildPhases = (
+				8B930E921DE3D7A200A09227 /* Sources */,
+				8B930E931DE3D7A200A09227 /* Frameworks */,
+				8B930E941DE3D7A200A09227 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B930E981DE3D7A200A09227 /* PBXTargetDependency */,
+			);
+			name = JingChengWirelessOrderForDishesUITests;
+			productName = JingChengWirelessOrderForDishesUITests;
+			productReference = 8B930E961DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B930E6F1DE3D7A100A09227 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = zhangxu;
+				TargetAttributes = {
+					8B930E761DE3D7A100A09227 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = A6RKWJ9J6G;
+						ProvisioningStyle = Automatic;
+					};
+					8B930E8A1DE3D7A200A09227 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = A6RKWJ9J6G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8B930E761DE3D7A100A09227;
+					};
+					8B930E951DE3D7A200A09227 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = A6RKWJ9J6G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8B930E761DE3D7A100A09227;
+					};
+				};
+			};
+			buildConfigurationList = 8B930E721DE3D7A100A09227 /* Build configuration list for PBXProject "JingChengWirelessOrderForDishes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B930E6E1DE3D7A100A09227;
+			productRefGroup = 8B930E781DE3D7A100A09227 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B930E761DE3D7A100A09227 /* JingChengWirelessOrderForDishes */,
+				8B930E8A1DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests */,
+				8B930E951DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B930E751DE3D7A100A09227 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B930E851DE3D7A100A09227 /* LaunchScreen.storyboard in Resources */,
+				8B930E821DE3D7A100A09227 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B930E891DE3D7A200A09227 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B930E941DE3D7A200A09227 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		340CFED65492901B63A3F8EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3DF0ACD91BFFFC07CA46ACBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JingChengWirelessOrderForDishes/Pods-JingChengWirelessOrderForDishes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		843779F7BA2F1B28B3B0F444 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JingChengWirelessOrderForDishes/Pods-JingChengWirelessOrderForDishes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B930E731DE3D7A100A09227 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B252E441DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift in Sources */,
+				8B930E7B1DE3D7A100A09227 /* AppDelegate.swift in Sources */,
+				8B930EC21DE3DA9F00A09227 /* JCRightViewModel.swift in Sources */,
+				8B930ECD1DE3DBE100A09227 /* JCAccountView.swift in Sources */,
+				8B252E461DE56D8300F8CA3C /* HttpManager.swift in Sources */,
+				8B9514DC1DE51ED2008D4D63 /* JCDishModel.swift in Sources */,
+				8B930EBA1DE3DA5200A09227 /* JCLeftModel.swift in Sources */,
+				8B930ECE1DE3DBE100A09227 /* JCPasswordView.swift in Sources */,
+				8B252E421DE55B9400F8CA3C /* JCMenuCell.swift in Sources */,
+				8B2E2A131DE42A3700044433 /* JCLeftCell.swift in Sources */,
+				8B9514DA1DE51EAE008D4D63 /* JCOrderController.swift in Sources */,
+				8B9514D61DE51E7D008D4D63 /* JCMenuController.swift in Sources */,
+				8B930ED41DE3DBEA00A09227 /* JCTableNumberController.swift in Sources */,
+				8B252E3E1DE53E9700F8CA3C /* DIYButton.swift in Sources */,
+				8B9514D81DE51E90008D4D63 /* JCRecommendController.swift in Sources */,
+				8B930EC01DE3DA8D00A09227 /* JCRightModel.swift in Sources */,
+				8B938A991DE67CAE00DC609C /* JCOrderCell.swift in Sources */,
+				8B9514E01DE51F00008D4D63 /* JCRecommendViewModel.swift in Sources */,
+				8B420A601DEC1D1A00194B32 /* JCDishDetailView.swift in Sources */,
+				8B9515041DE53274008D4D63 /* JCMenuHeaderModel.swift in Sources */,
+				8B930ECC1DE3DBE100A09227 /* JCLoginController.swift in Sources */,
+				8B930EDE1DE3E41500A09227 /* JCHomeController.swift in Sources */,
+				8B938A9B1DE6D00900DC609C /* API.swift in Sources */,
+				8B252E401DE5573200F8CA3C /* JCMenuHeaderView.swift in Sources */,
+				8B930EC41DE3DAC500A09227 /* JCTopView.swift in Sources */,
+				8B930EBE1DE3DA7F00A09227 /* JCRightController.swift in Sources */,
+				8B930EB81DE3DA2600A09227 /* JCLeftController.swift in Sources */,
+				8BB10ADC1DEE6852002302E1 /* JCExitView.swift in Sources */,
+				8BB6C2DE1DEEAF1200C18186 /* JCLeftViewModel.swift in Sources */,
+				8B9514DE1DE51EED008D4D63 /* JCMenuViewModel.swift in Sources */,
+				8B9514E41DE522EC008D4D63 /* JCMenuHeaderCell.swift in Sources */,
+				8B938A9D1DE6DF9A00DC609C /* JCDishManager.swift in Sources */,
+				8B5D7A011DED66C60088B73A /* JCEmptyBackground.swift in Sources */,
+				8B930ED61DE3DCB700A09227 /* SwiftHeader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B930E871DE3D7A200A09227 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B930E901DE3D7A200A09227 /* JingChengWirelessOrderForDishesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B930E921DE3D7A200A09227 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B930E9B1DE3D7A200A09227 /* JingChengWirelessOrderForDishesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B930E8D1DE3D7A200A09227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B930E761DE3D7A100A09227 /* JingChengWirelessOrderForDishes */;
+			targetProxy = 8B930E8C1DE3D7A200A09227 /* PBXContainerItemProxy */;
+		};
+		8B930E981DE3D7A200A09227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B930E761DE3D7A100A09227 /* JingChengWirelessOrderForDishes */;
+			targetProxy = 8B930E971DE3D7A200A09227 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8B930E831DE3D7A100A09227 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B930E841DE3D7A100A09227 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8B930E9D1DE3D7A200A09227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		8B930E9E1DE3D7A200A09227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B930EA01DE3D7A200A09227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51C5C60A149B65D90E1EEBD8 /* Pods-JingChengWirelessOrderForDishes.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				INFOPLIST_FILE = JingChengWirelessOrderForDishes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxu.JingChengWirelessOrderForDishes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8B930EA11DE3D7A200A09227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF77C5DAAB04CCE47ED7BED1 /* Pods-JingChengWirelessOrderForDishes.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				INFOPLIST_FILE = JingChengWirelessOrderForDishes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxu.JingChengWirelessOrderForDishes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		8B930EA31DE3D7A200A09227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				INFOPLIST_FILE = JingChengWirelessOrderForDishesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxu.JingChengWirelessOrderForDishesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JingChengWirelessOrderForDishes.app/JingChengWirelessOrderForDishes";
+			};
+			name = Debug;
+		};
+		8B930EA41DE3D7A200A09227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				INFOPLIST_FILE = JingChengWirelessOrderForDishesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxu.JingChengWirelessOrderForDishesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JingChengWirelessOrderForDishes.app/JingChengWirelessOrderForDishes";
+			};
+			name = Release;
+		};
+		8B930EA61DE3D7A200A09227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				INFOPLIST_FILE = JingChengWirelessOrderForDishesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxu.JingChengWirelessOrderForDishesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = JingChengWirelessOrderForDishes;
+			};
+			name = Debug;
+		};
+		8B930EA71DE3D7A200A09227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				INFOPLIST_FILE = JingChengWirelessOrderForDishesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxu.JingChengWirelessOrderForDishesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = JingChengWirelessOrderForDishes;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B930E721DE3D7A100A09227 /* Build configuration list for PBXProject "JingChengWirelessOrderForDishes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B930E9D1DE3D7A200A09227 /* Debug */,
+				8B930E9E1DE3D7A200A09227 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B930E9F1DE3D7A200A09227 /* Build configuration list for PBXNativeTarget "JingChengWirelessOrderForDishes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B930EA01DE3D7A200A09227 /* Debug */,
+				8B930EA11DE3D7A200A09227 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B930EA21DE3D7A200A09227 /* Build configuration list for PBXNativeTarget "JingChengWirelessOrderForDishesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B930EA31DE3D7A200A09227 /* Debug */,
+				8B930EA41DE3D7A200A09227 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B930EA51DE3D7A200A09227 /* Build configuration list for PBXNativeTarget "JingChengWirelessOrderForDishesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B930EA61DE3D7A200A09227 /* Debug */,
+				8B930EA71DE3D7A200A09227 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B930E6F1DE3D7A100A09227 /* Project object */;
+}
