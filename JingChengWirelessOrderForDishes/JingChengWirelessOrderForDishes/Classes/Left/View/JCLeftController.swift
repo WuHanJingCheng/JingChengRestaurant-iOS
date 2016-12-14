@@ -75,14 +75,14 @@ class JCLeftController: UIViewController {
         
         // 发送请求
         let leftViewModel = JCLeftViewModel();
-        leftViewModel.fetchLeftDataFromServer(successCallBack: { [weak self] (result) in
+        leftViewModel.fetchLeftDataFromServer(successCallBack: { (result) in
             // 请求成功后的回调
             // 情况数组
-            self?.leftModelArray.removeAll();
+            self.leftModelArray.removeAll();
             // 更新数组
-            self?.leftModelArray += result;
+            self.leftModelArray += result;
             // 刷新数据
-            self?.tableView.reloadData();
+            self.tableView.reloadData();
             
             }, failureCallBack: {
                 (error) in

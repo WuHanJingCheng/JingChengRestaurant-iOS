@@ -45,6 +45,8 @@
 		8B9515041DE53274008D4D63 /* JCMenuHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9515031DE53274008D4D63 /* JCMenuHeaderModel.swift */; };
 		8BB10ADC1DEE6852002302E1 /* JCExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB10ADB1DEE6852002302E1 /* JCExitView.swift */; };
 		8BB6C2DE1DEEAF1200C18186 /* JCLeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB6C2DD1DEEAF1200C18186 /* JCLeftViewModel.swift */; };
+		8BCD37981DFF99800067CDDB /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD37971DFF99800067CDDB /* CacheManager.swift */; };
+		8BCD37D81DFFF1760067CDDB /* ZXAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD37D71DFFF1760067CDDB /* ZXAnimation.swift */; };
 		D9734FF158852CB01776BD62 /* Pods_JingChengWirelessOrderForDishes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879C47B43F4171D2368E441 /* Pods_JingChengWirelessOrderForDishes.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,8 @@
 		8B9515031DE53274008D4D63 /* JCMenuHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuHeaderModel.swift; sourceTree = "<group>"; };
 		8BB10ADB1DEE6852002302E1 /* JCExitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCExitView.swift; sourceTree = "<group>"; };
 		8BB6C2DD1DEEAF1200C18186 /* JCLeftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLeftViewModel.swift; sourceTree = "<group>"; };
+		8BCD37971DFF99800067CDDB /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		8BCD37D71DFFF1760067CDDB /* ZXAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXAnimation.swift; sourceTree = "<group>"; };
 		D879C47B43F4171D2368E441 /* Pods_JingChengWirelessOrderForDishes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JingChengWirelessOrderForDishes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF77C5DAAB04CCE47ED7BED1 /* Pods-JingChengWirelessOrderForDishes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JingChengWirelessOrderForDishes.release.xcconfig"; path = "Pods/Target Support Files/Pods-JingChengWirelessOrderForDishes/Pods-JingChengWirelessOrderForDishes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				8B938A9A1DE6D00900DC609C /* API.swift */,
+				8BCD37971DFF99800067CDDB /* CacheManager.swift */,
+				8BCD37D71DFFF1760067CDDB /* ZXAnimation.swift */,
 				8B930ED91DE3E40800A09227 /* Home */,
 				8B930ECF1DE3DBEA00A09227 /* Table */,
 				8B930EC51DE3DBE100A09227 /* Login */,
@@ -625,7 +631,7 @@
 				TargetAttributes = {
 					8B930E761DE3D7A100A09227 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = A6RKWJ9J6G;
+						DevelopmentTeam = 3GP38WPBTX;
 						ProvisioningStyle = Automatic;
 					};
 					8B930E8A1DE3D7A200A09227 = {
@@ -747,6 +753,7 @@
 				8B930ECD1DE3DBE100A09227 /* JCAccountView.swift in Sources */,
 				8B252E461DE56D8300F8CA3C /* HttpManager.swift in Sources */,
 				8B9514DC1DE51ED2008D4D63 /* JCDishModel.swift in Sources */,
+				8BCD37981DFF99800067CDDB /* CacheManager.swift in Sources */,
 				8B930EBA1DE3DA5200A09227 /* JCLeftModel.swift in Sources */,
 				8B930ECE1DE3DBE100A09227 /* JCPasswordView.swift in Sources */,
 				8B252E421DE55B9400F8CA3C /* JCMenuCell.swift in Sources */,
@@ -774,6 +781,7 @@
 				8B9514E41DE522EC008D4D63 /* JCMenuHeaderCell.swift in Sources */,
 				8B938A9D1DE6DF9A00DC609C /* JCDishManager.swift in Sources */,
 				8B5D7A011DED66C60088B73A /* JCEmptyBackground.swift in Sources */,
+				8BCD37D81DFFF1760067CDDB /* ZXAnimation.swift in Sources */,
 				8B930ED61DE3DCB700A09227 /* SwiftHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -919,7 +927,7 @@
 			baseConfigurationReference = 51C5C60A149B65D90E1EEBD8 /* Pods-JingChengWirelessOrderForDishes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				DEVELOPMENT_TEAM = 3GP38WPBTX;
 				INFOPLIST_FILE = JingChengWirelessOrderForDishes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -934,7 +942,7 @@
 			baseConfigurationReference = EF77C5DAAB04CCE47ED7BED1 /* Pods-JingChengWirelessOrderForDishes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A6RKWJ9J6G;
+				DEVELOPMENT_TEAM = 3GP38WPBTX;
 				INFOPLIST_FILE = JingChengWirelessOrderForDishes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

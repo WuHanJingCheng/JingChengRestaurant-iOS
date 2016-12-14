@@ -50,13 +50,13 @@ class JCMenuHeaderView: UIView {
         headerCollectionView.register(JCMenuHeaderCell.self, forCellWithReuseIdentifier: menuHeaderCellIdentifier)
         
         let menuHeaderViewModel = JCMenuHeaderViewModel();
-       menuHeaderViewModel.fetchMenuListDataFromServer(successCallBack: { [weak self] (result) in
+       menuHeaderViewModel.fetchMenuListDataFromServer(successCallBack: { (result) in
             // 清空数组
-            self?.menuHeaderModelArray.removeAll();
+            self.menuHeaderModelArray.removeAll();
             // 请求成功
-            self?.menuHeaderModelArray += result;
+            self.menuHeaderModelArray += result;
             // 刷新数组
-            self?.headerCollectionView.reloadData();
+            self.headerCollectionView.reloadData();
             
             }, failureCallBack: {
                 (error) in
@@ -93,23 +93,27 @@ extension JCMenuHeaderView: UICollectionViewDataSource, UICollectionViewDelegate
             return JCMenuHeaderCell();
         };
         
-        let menuHeaderModel = menuHeaderModelArray[indexPath.row];
-        cell.menuHeaderModel = menuHeaderModel;
-        cell.changeOtherBtnStatusCallBack = { [weak self]
-            (model) in
+        if indexPath.row < menuHeaderModelArray.count {
             
-            let _ = self?.menuHeaderModelArray.map({
-                (element) in
+            let menuHeaderModel = menuHeaderModelArray[indexPath.row];
+            cell.menuHeaderModel = menuHeaderModel;
+            cell.changeOtherBtnStatusCallBack = { [weak self]
+                (model) in
                 
-                element.isSelected = (element == model) ? true : false;
-            });
-            // 更新状态
-            self?.headerCollectionView.reloadData();
-            
-            if let updateCategoryDetailDataCallBack = self?.updateCategoryDetailDataCallBack {
-                updateCategoryDetailDataCallBack(model);
+                let _ = self?.menuHeaderModelArray.map({
+                    (element) in
+                    
+                    element.isSelected = (element == model) ? true : false;
+                });
+                // 更新状态
+                self?.headerCollectionView.reloadData();
+                
+                if let updateCategoryDetailDataCallBack = self?.updateCategoryDetailDataCallBack {
+                    updateCategoryDetailDataCallBack(model);
+                }
             }
         }
+        
         return cell;
     }
     

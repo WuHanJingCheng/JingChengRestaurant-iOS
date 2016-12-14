@@ -155,16 +155,16 @@ func realValue(value: CGFloat) -> CGFloat {
     return realValue;
 }
 
-// 延迟执行
-func delayCallBack(_ time : CGFloat, callBack : (() -> ())?) -> Void {
-    
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(__int64_t(time) * __int64_t(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
-        
-        if let callBack = callBack {
-            callBack();
-        }
-    })
-}
+//// 延迟执行
+//func delayCallBack(_ time : CGFloat, callBack : (() -> ())?) -> Void {
+//    
+//    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(__int64_t(time) * __int64_t(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
+//        
+//        if let callBack = callBack {
+//            callBack();
+//        }
+//    })
+//}
 
 // 设置圆角
 func setRoundCorner(currentView: UIView, cornerRadii: CGSize) -> Void {

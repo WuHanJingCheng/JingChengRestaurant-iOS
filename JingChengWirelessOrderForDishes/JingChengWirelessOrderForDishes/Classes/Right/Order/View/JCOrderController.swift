@@ -454,8 +454,12 @@ extension JCOrderController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellIdentifier, for: indexPath) as? JCOrderCell else {
             return JCOrderCell();
         }
-        let model = orderModelArray[indexPath.row];
-        handleModelUpdateUI(cell: cell, model: model, indexPath: indexPath);
+        if indexPath.row < orderModelArray.count {
+            
+            let model = orderModelArray[indexPath.row];
+            handleModelUpdateUI(cell: cell, model: model, indexPath: indexPath);
+        }
+        
         return cell;
     }
     
@@ -466,19 +470,20 @@ extension JCOrderController: UITableViewDataSource, UITableViewDelegate {
         cell.model = (resultModel == nil) ? model : resultModel;
         cell.model?.indexPath = indexPath;
         // 加号按钮
-        cell.plusBtnCallBack = { [weak self]
+        cell.plusBtnCallBack = { [weak self, weak cell]
             (currentModel) in
             
             // 份数 +1
             JCDishManager.addDish(model: currentModel);
-            // 取出可选类型中的数据
-            guard let indexPath = currentModel.indexPath else {
-                return;
-            }
-            // 取出cell
-            let cell = self?.tableView.cellForRow(at: indexPath) as? JCOrderCell;
+            
+            // 更新份数
             let resultModel = JCDishManager.findDish(model: currentModel);
-            cell?.numberLabel.text = "\((resultModel?.number) ?? 0)";
+            if resultModel == nil {
+                currentModel.number = 0;
+                cell?.model = currentModel;
+            } else {
+                cell?.model = resultModel;
+            }
             
             // 更新UI
             self?.updateUI();

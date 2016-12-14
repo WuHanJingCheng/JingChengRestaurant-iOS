@@ -12,40 +12,45 @@ class JCLeftViewModel: NSObject {
     
     
     // 从服务器请求数据
-    func fetchLeftDataFromServer(successCallBack: ((_ result: [JCLeftModel]) -> ())?, failureCallBack: ((_ error: Error) -> ())?) -> Void {
+    func fetchLeftDataFromServer(successCallBack: @escaping(_ result: [JCLeftModel]) -> (), failureCallBack: @escaping(_ error: Error) -> ()) -> Void {
         
         let mgr = HttpManager.shared;
         mgr.requestSerializer.timeoutInterval = 10;
         mgr.request(.GET, urlString: leftMenuListAPI, parameters: nil, finished: { (result, error) in
             
+            var result: [String: Any]? = result as? [String: Any];
+            
             if let error = error {
-                if let failureCallBack = failureCallBack {
-                    failureCallBack(error);
+                failureCallBack(error);
+                // 显示请求错误
+                print("请求失败, 或没有网络");
+                // 加载缓存
+                result = CacheManager.shared.getResultFromCache("leftMenuData.data") as? [String: Any];
+            } else {
+                
+                // 缓存数据
+                CacheManager.shared.cacheResult(result, fileName: "leftMenuData.data");
+            }
+            
+            if let result = result {
+     
+                guard let resultArray = result["results"] as? [[String: Any]] else {
                     return;
                 }
-            }
-            
-            guard let result = result as? [String: Any] else {
-                return;
-            }
-            
-            guard let resultArray = result["results"] as? [[String: Any]] else {
-                return;
-            }
-            
-            var leftModelArray = [JCLeftModel]();
-            let _ = resultArray.enumerated().map({
-                (dict) in
-                let model = JCLeftModel.modelWidthDic(dict: dict.element);
-                model.isRedIcon = (dict.offset == 2) ? true : false;
-                model.isTriangle = (dict.offset == 1) ? true : false;
-                leftModelArray.append(model);
-            });
-            
-            // 解析成功
-            if let successCallBack = successCallBack {
+                
+                var leftModelArray = [JCLeftModel]();
+                let _ = resultArray.enumerated().map({
+                    (dict) in
+                    let model = JCLeftModel.modelWidthDic(dict: dict.element);
+                    model.isRedIcon = (dict.offset == 2) ? true : false;
+                    model.isTriangle = (dict.offset == 1) ? true : false;
+                    leftModelArray.append(model);
+                });
+                
+                // 解析成功
                 successCallBack(leftModelArray);
             }
+            
         });
     }
 }

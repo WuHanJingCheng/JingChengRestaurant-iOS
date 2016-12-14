@@ -24,7 +24,7 @@ class JCDishDetailView: UIView {
     }();
     
     // 白布
-    private lazy var whiteBackground: UIImageView = {
+    lazy var whiteBackground: UIImageView = {
         let whiteBackground = UIImageView();
         whiteBackground.image = UIImage.imageWithName(name: "dishDetailView_whitebackground");
         whiteBackground.isUserInteractionEnabled = true;
@@ -192,6 +192,8 @@ class JCDishDetailView: UIView {
     // MARK: - 初始化
     override init(frame: CGRect) {
         super.init(frame: frame);
+        
+        self.autoresizingMask = [.flexibleWidth, .flexibleHeight];
         
         // 添加背景
         addSubview(background);

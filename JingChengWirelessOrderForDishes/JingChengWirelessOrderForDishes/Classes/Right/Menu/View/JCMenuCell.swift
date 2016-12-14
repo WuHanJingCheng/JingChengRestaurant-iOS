@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class JCMenuCell: UICollectionViewCell {
     
@@ -105,6 +106,9 @@ class JCMenuCell: UICollectionViewCell {
     // 点击图片弹窗
     var clickDishImageCallBack: ((_ model: JCDishModel) -> ())?;
     
+    // 存储旧的Model
+    var oldModel: JCDishModel?;
+    
     var model: JCDishModel? {
         didSet {
             // 获取可选类型中的数据
@@ -136,7 +140,9 @@ class JCMenuCell: UICollectionViewCell {
            
             // 菜图片
             if let dish_url = model.dish_url {
-                dishImage.zx_setImageWithURL(dish_url);
+                if model.dish_url != self.oldModel?.dish_url {
+                    dishImage.zx_setImageWithURL(dish_url);
+                }
             }
             
             // 菜名
@@ -148,6 +154,9 @@ class JCMenuCell: UICollectionViewCell {
             if let price = model.price {
                 priceLabel.text = String(format: "￥%.2f", price);
             }
+            
+            // 更新旧的模型
+            self.oldModel = model;
         }
     }
     

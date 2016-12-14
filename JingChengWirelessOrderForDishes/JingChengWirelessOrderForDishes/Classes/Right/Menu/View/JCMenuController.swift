@@ -51,33 +51,35 @@ class JCMenuController: UIViewController {
         collectionView.register(JCMenuCell.self, forCellWithReuseIdentifier: menuCellIdentifier);
         
         // 请求肉类数据
-        fetchCategoryDataFromServer(url: subMenuMeatAPI);
+        let menuHeaderModel = JCMenuHeaderModel();
+        menuHeaderModel.category_url = subMenuMeatAPI;
+        menuHeaderModel.name = "肉类";
+        fetchCategoryDataFromServer(menuHeaderModel: menuHeaderModel);
         
-        // 更新分类内容
+         // 更新分类内容
         menuHeader.updateCategoryDetailDataCallBack = { [weak self]
             (model) in
-            // 清空数组
-            self?.menuModelArray.removeAll();
+        
             let indexPath = IndexPath(row: 0, section: 0);
             self?.collectionView.scrollToItem(at: indexPath, at: .top, animated: false);
             // 请求分类数据
-            if let category_url = model.category_url {
-                self?.fetchCategoryDataFromServer(url: category_url);
-            }
+            self?.fetchCategoryDataFromServer(menuHeaderModel: model);
         }
     }
     
     // 请求分类数据
-    private func fetchCategoryDataFromServer(url: String) -> Void {
+    private func fetchCategoryDataFromServer(menuHeaderModel: JCMenuHeaderModel) -> Void {
         
         let menuViewModel = JCMenuViewModel();
-        menuViewModel.fetchMenuDetailDataFromServer(url: url, successCallBack: { [weak self]
+        menuViewModel.fetchMenuDetailDataFromServer(menuHeaderModel: menuHeaderModel, successCallBack: {
             (result) in
+            // 清空数组
+            self.menuModelArray.removeAll();
             // 请求成功的回调
             // 更新数组
-            self?.menuModelArray += result;
+            self.menuModelArray += result;
             // 刷新数据
-            self?.collectionView.reloadData();
+            self.collectionView.reloadData();
             
             }, failureCallBack: {
                 (error) in
@@ -107,9 +109,12 @@ extension JCMenuController: UICollectionViewDataSource, UICollectionViewDelegate
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuCellIdentifier, for: indexPath) as? JCMenuCell else {
             return JCMenuCell();
         }
-        let model = menuModelArray[indexPath.row];
-        // 处理cell交互
-        handleModelUpdateUI(cell: cell, model: model);
+        if indexPath.row < menuModelArray.count {
+            let model = menuModelArray[indexPath.row];
+            // 处理cell交互
+            handleModelUpdateUI(cell: cell, model: model);
+        }
+        
         return cell;
     }
     
@@ -125,117 +130,158 @@ extension JCMenuController: UICollectionViewDataSource, UICollectionViewDelegate
         }
         
         // 点击图片弹窗
-        cell.clickDishImageCallBack = { [weak self]
+        cell.clickDishImageCallBack = { [weak cell]
             (currentModel) in
             
             guard let window = UIApplication.shared.keyWindow else {
                 return;
             }
+            // 创建详情对象
             let dishDetailView = JCDishDetailView();
+            // 设置frame
             dishDetailView.frame = window.bounds;
+            // 更新份数
             let resultModel = JCDishManager.findDish(model: currentModel);
             if resultModel == nil {
                 currentModel.number = 0;
-                dishDetailView.model = model;
+                dishDetailView.model = currentModel;
             } else {
                 dishDetailView.model = resultModel;
             }
+        
+            // 添加到window上
             window.addSubview(dishDetailView);
             
+            // 添加弹出动画
+            ZXAnimation.startAnimation(targetView: dishDetailView);
+            
             // 消失按钮的回调
-            dishDetailView.deleteBtnCallBack = { [weak dishDetailView]
+            dishDetailView.deleteBtnCallBack = {
                 _ in
                 // 从父控件中移除
-                dishDetailView?.removeFromSuperview();
+                ZXAnimation.stopAnimation(targetView: dishDetailView);
             }
             
             // 添加按钮的回调
-            dishDetailView.plusBtnCallBack = { [weak self, weak dishDetailView]
+            dishDetailView.plusBtnCallBack = { [weak dishDetailView, weak cell]
                 (currentModel) in
-                // 增加份数
+                // 份数 +1
                 JCDishManager.addDish(model: currentModel);
+                // 更新份数
                 let resultModel = JCDishManager.findDish(model: currentModel);
-                dishDetailView?.numberLabel.text = "\(resultModel?.number ?? 0)";
-                // 刷新数据
-                self?.collectionView.reloadData();
+                if resultModel == nil {
+                    currentModel.number = 0;
+                    dishDetailView?.model = currentModel;
+                    cell?.model = currentModel;
+                } else {
+                    dishDetailView?.model = resultModel;
+                    cell?.model = resultModel;
+                }
+                
                 // 发送通知，改变份数
                 NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);
             }
 
             // 减号按钮的回调
-            dishDetailView.minusBtnCallBack = { [weak self, weak dishDetailView]
+            dishDetailView.minusBtnCallBack = { [weak dishDetailView, weak cell]
                 (currentModel) in
                 // 减少份数
                 JCDishManager.reduceDish(model: currentModel);
+                
+                // 更新份数
                 let resultModel = JCDishManager.findDish(model: currentModel);
-                dishDetailView?.numberLabel.text = "\(resultModel?.number ?? 0)";
-                // 隐藏加减号，显示加入按钮
-                if dishDetailView?.numberLabel.text == "0" {
-                    dishDetailView?.addBtn.isHidden = false;
-                    dishDetailView?.plusBtn.isHidden = true;
-                    dishDetailView?.numberLabel.isHidden = true;
-                    dishDetailView?.minusBtn.isHidden = true;
+                if resultModel == nil {
+                    currentModel.number = 0;
+                    dishDetailView?.model = currentModel;
+                    cell?.model = currentModel;
+                } else {
+                    dishDetailView?.model = resultModel;
+                    cell?.model = resultModel;
                 }
-                // 刷新数据
-                self?.collectionView.reloadData();
+                
                 // 发送通知，改变份数
                 NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);
             }
             
             // 加入按钮的回调
-            dishDetailView.addBtnCallBack = { [weak self, weak dishDetailView]
+            dishDetailView.addBtnCallBack = { [weak dishDetailView, weak cell]
                 (currentModel) in
-                // 显示加减号，隐藏加入按钮
-                dishDetailView?.addBtn.isHidden = true;
-                dishDetailView?.plusBtn.isHidden = false;
-                dishDetailView?.numberLabel.isHidden = false;
-                dishDetailView?.minusBtn.isHidden = false;
-                // 更改份数
-                JCDishManager.addDish(model: currentModel);
-                let resultModel = JCDishManager.findDish(model: currentModel);
-                dishDetailView?.numberLabel.text = "\(resultModel?.number ?? 0)";
+                
                 // 改变当前模型的状态
                 currentModel.isAddBtn = false;
-                // 刷新数据
-                self?.collectionView.reloadData();
+                // 份数 +1
+                JCDishManager.addDish(model: currentModel);
+                // 更新份数
+                let resultModel = JCDishManager.findDish(model: currentModel);
+                if resultModel == nil {
+                    currentModel.number = 0;
+                    dishDetailView?.model = currentModel;
+                    cell?.model = currentModel;
+                } else {
+                    dishDetailView?.model = resultModel;
+                    cell?.model = resultModel;
+                }
                 // 发送通知，改变份数
                 NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);
             }
         }
         
         // 加入按钮
-        cell.addBtnCallBack = { [weak self]
+        cell.addBtnCallBack = { [weak cell]
             (currentModel) in
             // 改变当前模型的状态
             currentModel.isAddBtn = false;
             // 份数 +1
             JCDishManager.addDish(model: currentModel);
-            // 刷新状态
-            self?.collectionView.reloadData();
+            
+            // 更新份数
+            let resultModel = JCDishManager.findDish(model: currentModel);
+            if resultModel == nil {
+                currentModel.number = 0;
+                cell?.model = currentModel;
+            } else {
+                cell?.model = resultModel;
+            }
+
             // 发送通知，改变份数
             NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);
         }
         
         // 加号按钮
-        cell.plucBtnCallBack = { [weak self]
+        cell.plucBtnCallBack = { [weak cell]
             (currentModel) in
             
             // 份数 +1
             JCDishManager.addDish(model: currentModel);
-            // 刷新状态
-            self?.collectionView.reloadData();
+            
+            // 更新份数
+            let resultModel = JCDishManager.findDish(model: currentModel);
+            if resultModel == nil {
+                currentModel.number = 0;
+                cell?.model = currentModel;
+            } else {
+                cell?.model = resultModel;
+            }
+            
             // 发送通知，改变份数
             NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);
         }
         
         // 减号按钮
-        cell.minusBtnCallBack = { [weak self]
+        cell.minusBtnCallBack = { [weak cell]
             (currentModel) in
             
             // 份数 -1
             JCDishManager.reduceDish(model: currentModel);
-            // 刷新状态
-            self?.collectionView.reloadData();
+            
+            // 更新份数
+            let resultModel = JCDishManager.findDish(model: currentModel);
+            if resultModel == nil {
+                currentModel.number = 0;
+                cell?.model = currentModel;
+            } else {
+                cell?.model = resultModel;
+            }
             // 发送通知，改变份数
             NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);
         }
