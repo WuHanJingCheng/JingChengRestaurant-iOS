@@ -124,6 +124,7 @@ class JCLoginController: UIViewController {
         debugPrint("点击了登录按钮");
 
         let tableVc = JCTableNumberController();
+        tableVc.modalTransitionStyle = .crossDissolve;
         present(tableVc, animated: true, completion: nil);
     }
     

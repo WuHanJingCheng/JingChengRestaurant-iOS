@@ -12,6 +12,13 @@ fileprivate let redIconPadding = realValue(value: 8/2);
 
 class JCLeftCell: UITableViewCell {
     
+    // 背景
+    private lazy var background: UIImageView = {
+        let background = UIImageView();
+        background.isUserInteractionEnabled = true;
+        return background;
+    }();
+    
     // icon
     private lazy var icon: UIImageView = {
         let icon = UIImageView();
@@ -26,14 +33,7 @@ class JCLeftCell: UITableViewCell {
         label.textAlignment = .center;
         return label;
     }();
-    
-    // 选中小三角
-    private lazy var triangleView: UIImageView = {
-        let triangleView = UIImageView();
-        triangleView.image = UIImage.imageWithName(name: "left_cell_triangleView");
-        return triangleView;
-    }();
-    
+
     // 红色数字图标
     private lazy var redIcon: UIButton = {
         let button = UIButton(type: .custom);
@@ -45,6 +45,22 @@ class JCLeftCell: UITableViewCell {
         button.isHidden = true;
         return button;
     }();
+    
+    var isShow: Bool? {
+        didSet {
+            // 获取可选类型中的数据
+            guard let isShow = isShow else {
+                return;
+            }
+            
+            if isShow == true {
+                background.image = UIImage.imageWithName(name: "left_cell_background");
+            } else {
+                background.image = UIImage.imageWithName(name: "");
+            }
+        }
+    }
+    
 
     var model: JCLeftModel? {
         didSet {
@@ -56,9 +72,9 @@ class JCLeftCell: UITableViewCell {
             // 购物车显示红色数字角标
             redIcon.isHidden = !model.isRedIcon;
             
-            // 选中显示三角
-            triangleView.isHidden = !model.isTriangle;
-            
+            // 是否选中背景
+            isShow = model.isShow;
+           
             // 修改份数
             redIcon.setTitle("\(model.number)", for: .normal);
             
@@ -93,18 +109,38 @@ class JCLeftCell: UITableViewCell {
         // 取消cell的选中样式
         selectionStyle = .none;
         
+        // 添加背景
+        contentView.addSubview(background);
+        
         // 添加icon
-        contentView.addSubview(icon);
+        background.addSubview(icon);
         
         // 添加name
-        contentView.addSubview(nameLabel);
-        
-        // 添加triangleView 
-        contentView.addSubview(triangleView);
+        background.addSubview(nameLabel);
+    
         
         // 添加redIcon 
         icon.addSubview(redIcon);
         
+    }
+    
+    // 改变份数
+    func changeRedIconNumber(model: JCLeftModel) -> () {
+        
+        // 购物车显示红色数字角标
+        redIcon.isHidden = !model.isRedIcon;
+        
+        // 修改份数
+        redIcon.setTitle("\(model.number)", for: .normal);
+        
+        let title = redIcon.title(for: .normal) ?? "0";
+        if title == "0" {
+            redIcon.isHidden = true;
+        }
+        
+        // 更新frame
+        layoutIfNeeded();
+        setNeedsLayout();
     }
     
     // 设置子控件的frame
@@ -115,9 +151,16 @@ class JCLeftCell: UITableViewCell {
         let height = bounds.size.height;
       
         
+        // 设置背景的frame
+        let backgroundW = width;
+        let backgroundH = realValue(value: 160/2);
+        let backgroundX = realValue(value: 0);
+        let backgroundY = (height - backgroundH)/2;
+        background.frame = CGRect(x: backgroundX, y: backgroundY, width: backgroundW, height: backgroundH);
+        
         // 设置icon的frame
-        let iconCenterX = width/2;
-        let iconCenterY = realValue(value: 100/2 + 100/2/2);
+        let iconCenterX = backgroundW/2;
+        let iconCenterY = realValue(value: 17/2/2 + 100/2/2);
         let iconW = realValue(value: 100/2);
         let iconH = iconW;
         icon.center = CGPoint(x: iconCenterX, y: iconCenterY);
@@ -126,16 +169,10 @@ class JCLeftCell: UITableViewCell {
         // 设置name的frame
         let nameLabelX = CGFloat(0);
         let nameLabelY = icon.frame.maxY + realValue(value: 15/2);
-        let nameLabelW = width;
+        let nameLabelW = backgroundW;
         let nameLabelH = realValue(value: 28/2);
         nameLabel.frame = CGRect(x: nameLabelX, y: nameLabelY, width: nameLabelW, height: nameLabelH);
         
-        // 设置triangleView 的frame
-        let triangleViewW = realValue(value: 18/2);
-        let triangleViewH = realValue(value: 32/2);
-        let triangleViewX = width - triangleViewW;
-        let triangleViewY = height/2 + triangleViewH/2;
-        triangleView.frame = CGRect(x: triangleViewX, y: triangleViewY, width: triangleViewW, height: triangleViewH);
         
         // 设置红色角标
         let title = redIcon.title(for: .normal) ?? "0";

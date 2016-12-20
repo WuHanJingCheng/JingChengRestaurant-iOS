@@ -186,7 +186,8 @@ class JCOrderController: UIViewController {
     // 重新开台
     fileprivate lazy var keepOrderBtn: UIButton = {
         let button = UIButton(type: .custom);
-        button.setBackgroundImage(UIImage.imageWithName(name: "order_open_tab_border"), for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_open_tab_border_normal"), for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_open_tab_border_highlighted"), for: .highlighted);
         button.setTitle("重新开台", for: .normal);
         button.setTitleColor(RGBWithHexColor(hexColor: 0x1a1a1a), for: .normal)
         button.titleLabel?.font = Font(size: 32/2);
@@ -197,7 +198,8 @@ class JCOrderController: UIViewController {
     // 发送下单
     fileprivate lazy var submitBtn: UIButton = {
         let button = UIButton(type: .custom);
-        button.setBackgroundImage(UIImage.imageWithName(name: "order_submitBtn_background"), for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_submitBtn_background_normal"), for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_submitBtn_background_highlighted"), for: .highlighted);
         button.setTitle("发送下单", for: .normal);
         button.setTitleColor(RGBWithHexColor(hexColor: 0x1a1a1a), for: .normal);
         button.titleLabel?.font = Font(size: 32/2);
@@ -541,9 +543,9 @@ extension JCOrderController {
         
         // 设置deleteAllBtn 的frame
         let deleteAllBtnY = realValue(value: 40/2);
-        let deleteAllBtnW = realValue(value: 156/2);
+        let deleteAllBtnW = realValue(value: 220/2);
         let deleteAllBtnX = width - deleteAllBtnW - realValue(value: 176/2);
-        let deleteAllBtnH = realValue(value: 52/2);
+        let deleteAllBtnH = realValue(value: 72/2);
         deleteAllBtn.frame = CGRect(x: deleteAllBtnX, y: deleteAllBtnY, width: deleteAllBtnW, height: deleteAllBtnH);
         
         // 设置serialNumberLabel 的frame

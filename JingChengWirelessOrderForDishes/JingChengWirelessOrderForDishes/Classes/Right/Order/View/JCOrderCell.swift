@@ -211,7 +211,7 @@ class JCOrderCell: UITableViewCell {
         
         // 设置minusBtn 的frame
         let minusBtnX = dishNameLabel.frame.maxX + realValue(value: 50/2);
-        let minusBtnW = realValue(value: 42/2);
+        let minusBtnW = realValue(value: 48/2);
         let minusBtnH = minusBtnW;
         let minusBtnY = (height - minusBtnH)/2;
         minusBtn.frame = CGRect(x: minusBtnX, y: minusBtnY, width: minusBtnW, height: minusBtnH);

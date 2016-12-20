@@ -46,7 +46,8 @@ class JCEmptyBackground: UIView {
     // 重新开台
     private lazy var keepOrderBtn: UIButton = {
         let button = UIButton(type: .custom);
-        button.setBackgroundImage(UIImage.imageWithName(name: "order_empty_keepOrderBtn_background"), for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_empty_keepOrderBtn_background_normal"), for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_empty_keepOrderBtn_background_highlighted"), for: .highlighted);
         button.setTitle("重新开台", for: .normal);
         button.setTitleColor(RGBWithHexColor(hexColor: 0x1a1a1a), for: .normal)
         button.titleLabel?.font = Font(size: 32/2);
@@ -57,8 +58,9 @@ class JCEmptyBackground: UIView {
     // 点餐按钮
     private lazy var orderBtn: UIButton = {
         let button = UIButton(type: .custom);
-        button.setBackgroundImage(UIImage.imageWithName(name: "order_empty_orderBtn_background"), for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_empty_orderBtn_background_normal"), for: .normal);
         button.setTitle("点餐", for: .normal);
+        button.setBackgroundImage(UIImage.imageWithName(name: "order_empty_orderBtn_background_highlighted"), for: .highlighted);
         button.setTitleColor(RGBWithHexColor(hexColor: 0x1a1a1a), for: .normal);
         button.titleLabel?.font = Font(size: 32/2);
         button.addTarget(self, action: #selector(orderBtnClick), for: .touchUpInside);
@@ -143,14 +145,14 @@ class JCEmptyBackground: UIView {
         // 设置keepOrderBtn 的 frame
         let keepOrderBtnX = textLabelX;
         let keepOrderBtnY = detailLabel.frame.maxY + realValue(value: 126/2);
-        let keepOrderBtnW = realValue(value: 160/2);
-        let keepOrderBtnH = realValue(value: 58/2);
+        let keepOrderBtnW = realValue(value: 220/2);
+        let keepOrderBtnH = realValue(value: 72/2);
         keepOrderBtn.frame = CGRect(x: keepOrderBtnX, y: keepOrderBtnY, width: keepOrderBtnW, height: keepOrderBtnH);
         
         // 设置orderBtn 的frame
         let orderBtnX = keepOrderBtn.frame.maxX + realValue(value: 80/2);
         let orderBtnY = keepOrderBtnY;
-        let orderBtnW = realValue(value: 126/2);
+        let orderBtnW = keepOrderBtnW;
         let orderBtnH = keepOrderBtnH;
         orderBtn.frame = CGRect(x: orderBtnX, y: orderBtnY, width: orderBtnW, height: orderBtnH);
         

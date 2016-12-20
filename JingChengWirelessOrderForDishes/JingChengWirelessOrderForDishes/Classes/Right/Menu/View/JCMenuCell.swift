@@ -105,9 +105,7 @@ class JCMenuCell: UICollectionViewCell {
     var minusBtnCallBack: ((_ model: JCDishModel) -> ())?;
     // 点击图片弹窗
     var clickDishImageCallBack: ((_ model: JCDishModel) -> ())?;
-    
-    // 存储旧的Model
-    var oldModel: JCDishModel?;
+   
     
     var model: JCDishModel? {
         didSet {
@@ -140,9 +138,7 @@ class JCMenuCell: UICollectionViewCell {
            
             // 菜图片
             if let dish_url = model.dish_url {
-                if model.dish_url != self.oldModel?.dish_url {
-                    dishImage.zx_setImageWithURL(dish_url);
-                }
+                dishImage.zx_setImageWithURL(dish_url);
             }
             
             // 菜名
@@ -154,9 +150,6 @@ class JCMenuCell: UICollectionViewCell {
             if let price = model.price {
                 priceLabel.text = String(format: "￥%.2f", price);
             }
-            
-            // 更新旧的模型
-            self.oldModel = model;
         }
     }
     
@@ -198,6 +191,32 @@ class JCMenuCell: UICollectionViewCell {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(tap:)));
         dishImage.addGestureRecognizer(tap);
+    }
+    
+    // 更新份数
+    func changeNumberLabel(model: JCDishModel) -> Void {
+        
+        // 根据模型设置显示和隐藏
+        if model.isAddBtn == true {
+            addBtn.isHidden = false;
+            minusBtn.isHidden = true;
+            numberLabel.isHidden = true;
+            plusBtn.isHidden = true;
+        } else {
+            addBtn.isHidden = true;
+            minusBtn.isHidden = false;
+            numberLabel.isHidden = false;
+            plusBtn.isHidden = false;
+        }
+        
+        numberLabel.text = "\(model.number)";
+        // 如果份数为0，显示加入按钮，隐藏加减号按钮
+        if numberLabel.text == "0" {
+            addBtn.isHidden = false;
+            minusBtn.isHidden = true;
+            numberLabel.isHidden = true;
+            plusBtn.isHidden = true;
+        }
     }
     
     // 轻拍手势，点击图片弹窗

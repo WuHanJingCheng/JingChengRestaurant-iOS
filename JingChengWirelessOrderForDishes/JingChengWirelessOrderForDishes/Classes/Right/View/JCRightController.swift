@@ -40,7 +40,7 @@ class JCRightController: UIViewController {
         super.viewDidLoad()
         
         // 设置背景颜色
-        view.backgroundColor = RGBWithHexColor(hexColor: 0xf5ebd5);
+        view.backgroundColor = RGBWithHexColor(hexColor: 0xfaf8f0);
         
         // 添加菜谱
         view.addSubview(menuVc.view);

@@ -13,7 +13,7 @@ class JCLeftModel: NSObject {
     var img_url: String?;
     var name: String?;
     var isRedIcon: Bool = false;
-    var isTriangle: Bool = false;
+    var isShow: Bool = false;
     var number: Int = 0;
     
     // 字典转模型

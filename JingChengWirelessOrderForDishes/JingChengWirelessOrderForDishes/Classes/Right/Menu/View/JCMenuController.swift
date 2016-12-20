@@ -236,12 +236,13 @@ extension JCMenuController: UICollectionViewDataSource, UICollectionViewDelegate
             
             // 更新份数
             let resultModel = JCDishManager.findDish(model: currentModel);
-            if resultModel == nil {
-                currentModel.number = 0;
-                cell?.model = currentModel;
+            if let resultModel = resultModel {
+                cell?.changeNumberLabel(model: resultModel);
             } else {
-                cell?.model = resultModel;
+                currentModel.number = 0;
+                cell?.changeNumberLabel(model: currentModel);
             }
+           
 
             // 发送通知，改变份数
             NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);
@@ -256,11 +257,11 @@ extension JCMenuController: UICollectionViewDataSource, UICollectionViewDelegate
             
             // 更新份数
             let resultModel = JCDishManager.findDish(model: currentModel);
-            if resultModel == nil {
-                currentModel.number = 0;
-                cell?.model = currentModel;
+            if let resultModel = resultModel {
+                cell?.changeNumberLabel(model: resultModel);
             } else {
-                cell?.model = resultModel;
+                currentModel.number = 0;
+                cell?.changeNumberLabel(model: currentModel);
             }
             
             // 发送通知，改变份数
@@ -276,11 +277,11 @@ extension JCMenuController: UICollectionViewDataSource, UICollectionViewDelegate
             
             // 更新份数
             let resultModel = JCDishManager.findDish(model: currentModel);
-            if resultModel == nil {
-                currentModel.number = 0;
-                cell?.model = currentModel;
+            if let resultModel = resultModel {
+                cell?.changeNumberLabel(model: resultModel);
             } else {
-                cell?.model = resultModel;
+                currentModel.number = 0;
+                cell?.changeNumberLabel(model: currentModel);
             }
             // 发送通知，改变份数
             NotificationCenter.default.post(name: ChangeRedIconNumberNotification, object: nil, userInfo: nil);

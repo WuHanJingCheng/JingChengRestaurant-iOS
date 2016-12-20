@@ -162,6 +162,7 @@ class JCTableNumberController: UIViewController, UITabBarControllerDelegate {
     @objc private func dinnerBtnClick(button: UIButton) -> Void {
         
         let homeVc = JCHomeController();
+        homeVc.modalTransitionStyle = .crossDissolve;
         present(homeVc, animated: true, completion: nil);
         
     }
@@ -213,7 +214,7 @@ class JCTableNumberController: UIViewController, UITabBarControllerDelegate {
         // 设置dinnerBtn 的frame
         let dinnerBtnCenterX = logoCenterX;
         let dinnerBtnCenterY = dinnerLabel.frame.maxY + realValue(value: 110/2 + 64/2/2);
-        let dinnerBtnW = realValue(value: 120/2);
+        let dinnerBtnW = realValue(value: 200/2);
         let dinnerBtnH = realValue(value: 64/2);
         dinnerBtn.center = CGPoint(x: dinnerBtnCenterX, y: dinnerBtnCenterY);
         dinnerBtn.bounds = CGRect(x: 0, y: 0, width: dinnerBtnW, height: dinnerBtnH);

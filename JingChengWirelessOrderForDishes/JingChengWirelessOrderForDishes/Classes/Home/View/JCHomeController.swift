@@ -29,6 +29,7 @@ class JCHomeController: UIViewController {
         return rightVc;
     }();
     
+    
     // 移除通知
     deinit {
         // 移除通知
@@ -56,7 +57,7 @@ class JCHomeController: UIViewController {
         // 回到输入桌号页面
         rightVc.orderedVc.dismissCallBack = { [weak self]
             _ in
-            self?.dismiss(animated: false, completion: nil);
+            self?.dismiss(animated: true, completion: nil);
         }
         
         
@@ -86,6 +87,7 @@ class JCHomeController: UIViewController {
             }
         }
         
+    
         // 添加通知
         NotificationCenter.default.addObserver(self, selector: #selector(updateCategoryContentNotification(notification:)), name: ChangeCategoryNotification, object: nil);
 
@@ -117,9 +119,9 @@ class JCHomeController: UIViewController {
         let _ = leftVc.leftModelArray.enumerated().map({
             (model) in
             if model.offset == 1 {
-                model.element.isTriangle = true;
+                model.element.isShow = true;
             } else {
-                model.element.isTriangle = false;
+                model.element.isShow = false;
             }
         });
         

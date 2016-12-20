@@ -43,7 +43,7 @@ class JCLeftViewModel: NSObject {
                     (dict) in
                     let model = JCLeftModel.modelWidthDic(dict: dict.element);
                     model.isRedIcon = (dict.offset == 2) ? true : false;
-                    model.isTriangle = (dict.offset == 1) ? true : false;
+                    model.isShow = (dict.offset == 1) ? true : false;
                     leftModelArray.append(model);
                 });
                 

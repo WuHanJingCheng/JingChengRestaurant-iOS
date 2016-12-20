@@ -48,7 +48,7 @@ class JCLeftController: UIViewController {
     var switchMenuCallBack: ((_ model: JCLeftModel) -> ())?;
     // 更新导航栏标题
     var titleCallBack: ((_ model: JCLeftModel) -> ())?;
-  
+ 
     
     // 释放
     deinit {
@@ -102,7 +102,9 @@ class JCLeftController: UIViewController {
         let model = leftModelArray[2];
         model.number = JCDishManager.totalNumber();
         // 刷新数据
-        tableView.reloadData();
+        let indexPath = IndexPath.init(row: 2, section: 0);
+        let cell = tableView.cellForRow(at: indexPath) as? JCLeftCell;
+        cell?.changeRedIconNumber(model: model);
     }
     
     // 监听退出按钮的点击
@@ -115,31 +117,53 @@ class JCLeftController: UIViewController {
         let exitView = JCExitView();
         exitView.frame = window.bounds;
         window.addSubview(exitView);
+        // 添加动画
+        ZXAnimation.startAnimation(targetView: exitView);
         // 回到登录页面
-        exitView.submitBtnCallBack = { [weak exitView]
+        exitView.submitBtnCallBack = { [unowned exitView, weak self]
             _ in
             // 将分数清空
             JCDishManager.shared.dishs.removeAll();
-            // 先让exitView 消失
-            exitView?.removeFromSuperview();
-            // 回到登录页面
-            guard let window = UIApplication.shared.keyWindow else {
-                return;
-            }
-            guard let loginVc = window.rootViewController as? JCLoginController else {
-                return;
-            };
-            // 先将已有得根控制器销毁
-            loginVc.dismiss(animated: false, completion: nil);
-            // 在设置根控制器
-            window.rootViewController = loginVc;
+   
+            self?.stopAnimation(targetView: exitView)
+        
         }
         // 让退出页面消失
-        exitView.cancelBtnCallBack = { [weak exitView]
+        exitView.cancelBtnCallBack = { [unowned exitView]
             _ in
-            exitView?.removeFromSuperview();
+            ZXAnimation.stopAnimation(targetView: exitView);
         }
     }
+    
+    // 停止动画
+    func stopAnimation(targetView: UIView) -> Void {
+        
+        // 回到登录页面
+        guard let window = UIApplication.shared.keyWindow else {
+            return;
+        }
+        guard let loginVc = window.rootViewController as? JCLoginController else {
+            return;
+        };
+        
+        // 先将已有得根控制器销毁
+        loginVc.dismiss(animated: false, completion: nil);
+        
+        let subView = targetView.subviews[0].subviews[0];
+        UIView.animate(withDuration: 0.5, animations: {
+            _ in
+            
+            subView.transform = CGAffineTransform(scaleX: 0, y: 0);
+            targetView.alpha = 0;
+            
+            }, completion: {
+                _ in
+            
+                // 移除目标视图
+                targetView.removeFromSuperview();
+        })
+    }
+
     
     // 设置子控件的frame
     override func viewDidLayoutSubviews() {
@@ -215,10 +239,10 @@ extension JCLeftController: UITableViewDataSource, UITableViewDelegate {
         
         let _ = leftModelArray.map({
             (leftModel) in
-            leftModel.isTriangle = false;
+            leftModel.isShow = false;
         });
         
-        model.isTriangle = true;
+        model.isShow = true;
         
         // 刷新状态
         tableView.reloadData();

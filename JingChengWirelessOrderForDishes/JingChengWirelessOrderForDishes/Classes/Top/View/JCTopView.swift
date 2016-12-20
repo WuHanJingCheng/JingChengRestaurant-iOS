@@ -9,6 +9,14 @@
 import UIKit
 
 class JCTopView: UIView {
+    
+    // 背景
+    private lazy var background: UIImageView = {
+        let background = UIImageView();
+        background.image = UIImage.imageWithName(name: "top_background");
+        background.isUserInteractionEnabled = true;
+        return background;
+    }();
 
     // logo
     private lazy var logo: UIImageView = {
@@ -17,12 +25,22 @@ class JCTopView: UIView {
         return logo;
     }();
     
+    // logo 名称
+    private lazy var logoNameLabel: UILabel = {
+        let label = UILabel();
+        label.font = Font(size: 24/2);
+        label.textColor = RGBWithHexColor(hexColor: 0xe6e6e6);
+        label.textAlignment = .left;
+        label.text = "阿芈烧烤";
+        return label;
+    }();
+    
     // title
     lazy var titleLabel: UILabel = {
         let label = UILabel();
         label.font = Font(size: 40/2);
         label.text = "菜谱";
-        label.textColor = RGBWithHexColor(hexColor: 0x191919);
+        label.textColor = RGBWithHexColor(hexColor: 0xe6e6e6);
         label.textAlignment = .center;
         return label;
     }();
@@ -35,10 +53,17 @@ class JCTopView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame);
         
+        // 添加背景
+        addSubview(background);
+        
         // 添加logo
-        addSubview(logo);
+        background.addSubview(logo);
+        
+        // 添加logo名称
+        background.addSubview(logoNameLabel);
+        
         // 添加title
-        addSubview(titleLabel);
+        background.addSubview(titleLabel);
         
     }
     
@@ -53,12 +78,22 @@ class JCTopView: UIView {
         let height = bounds.size.height;
         let width = bounds.size.width;
         
+        // 设置background 的frame
+        background.frame = bounds;
+        
         // 设置logo的frame
         let logoX = CGFloat(40/2);
         let logoY = (height - CGFloat(72/2))/2;
         let logoW = CGFloat(68/2);
         let logoH = CGFloat(72/2);
         logo.frame =  CGRect(x: logoX, y: logoY, width: logoW, height: logoH);
+        
+        // 设置logoNameLabel 的frame
+        let logoNameLabelW = calculateWidth(title: logoNameLabel.text ?? "", fontSize: 24/2, maxWidth: realValue(value: 300)) ?? 0;
+        let logoNameLabelH = realValue(value: 24/2);
+        let logoNameLabelX = logo.frame.maxX + realValue(value: 16/2);
+        let logoNameLabelY = (height - logoNameLabelH)/2;
+        logoNameLabel.frame = CGRect(x: logoNameLabelX, y: logoNameLabelY, width: logoNameLabelW, height: logoNameLabelH);
         
         // 设置title的frame
         let titleLabelCenterX = width/2;
