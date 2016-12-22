@@ -301,7 +301,7 @@ extension JCMenuController {
         
         let menuHeaderX = realValue(value: 10/2);
         let menuHeaderY = realValue(value: 20/2);
-        let menuHeaderW = realValue(value: 720/2);
+        let menuHeaderW = width - menuHeaderX * CGFloat(2);
         let menuHeaderH = realValue(value: 56/2);
         menuHeader.frame = CGRect(x: menuHeaderX, y: menuHeaderY, width: menuHeaderW, height: menuHeaderH);
         

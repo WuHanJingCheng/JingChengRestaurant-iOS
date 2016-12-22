@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class DIYButton: UIButton {
     
     override init(frame: CGRect) {
@@ -40,7 +41,7 @@ class DIYButton: UIButton {
         let image = self.image(for: .normal);
         guard let imageSize = image?.size else {return .zero};
         guard let title = self.title(for: .normal) else {return .zero};
-        let titleWidth = calculateWidth(title: title, fontSize: 32/2, maxWidth: realValue(value: 100)) ?? 0;
+        let titleWidth = calculateWidth(title: title, fontSize: 32/2, maxWidth: realValue(value: 300)) ?? 0;
         let titleHeight = realValue(value: 32/2);
         let titleX = realValue(value: 30/2) + imageSize.width/2;
         let titleY = (bounds.size.height - titleHeight)/2;

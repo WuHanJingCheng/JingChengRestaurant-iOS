@@ -13,6 +13,7 @@
 		8B252E441DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B252E431DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift */; };
 		8B252E461DE56D8300F8CA3C /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B252E451DE56D8300F8CA3C /* HttpManager.swift */; };
 		8B2E2A131DE42A3700044433 /* JCLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E2A121DE42A3700044433 /* JCLeftCell.swift */; };
+		8B41EE431E0A73D400A2FC8F /* ZXCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B41EE421E0A73D400A2FC8F /* ZXCollectionViewFlowLayout.swift */; };
 		8B420A601DEC1D1A00194B32 /* JCDishDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */; };
 		8B5D7A011DED66C60088B73A /* JCEmptyBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D7A001DED66C60088B73A /* JCEmptyBackground.swift */; };
 		8B930E7B1DE3D7A100A09227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930E7A1DE3D7A100A09227 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		8B252E431DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuHeaderViewModel.swift; sourceTree = "<group>"; };
 		8B252E451DE56D8300F8CA3C /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		8B2E2A121DE42A3700044433 /* JCLeftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLeftCell.swift; sourceTree = "<group>"; };
+		8B41EE421E0A73D400A2FC8F /* ZXCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDishDetailView.swift; sourceTree = "<group>"; };
 		8B5D7A001DED66C60088B73A /* JCEmptyBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCEmptyBackground.swift; sourceTree = "<group>"; };
 		8B930E771DE3D7A100A09227 /* JingChengWirelessOrderForDishes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingChengWirelessOrderForDishes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,13 +219,13 @@
 		8B930EA81DE3DA0E00A09227 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8B930EA91DE3DA0E00A09227 /* Header */,
 				8B938A9A1DE6D00900DC609C /* API.swift */,
 				8BCD37971DFF99800067CDDB /* CacheManager.swift */,
 				8BCD37D71DFFF1760067CDDB /* ZXAnimation.swift */,
 				8B930ED91DE3E40800A09227 /* Home */,
 				8B930ECF1DE3DBEA00A09227 /* Table */,
 				8B930EC51DE3DBE100A09227 /* Login */,
-				8B930EA91DE3DA0E00A09227 /* Header */,
 				8B930EAA1DE3DA0E00A09227 /* Left */,
 				8B930EAE1DE3DA0E00A09227 /* Network */,
 				8B930EAF1DE3DA0E00A09227 /* Right */,
@@ -477,6 +479,7 @@
 				8B9514D51DE51E7D008D4D63 /* JCMenuController.swift */,
 				8B9514E31DE522EC008D4D63 /* JCMenuHeaderCell.swift */,
 				8B252E3F1DE5573200F8CA3C /* JCMenuHeaderView.swift */,
+				8B41EE421E0A73D400A2FC8F /* ZXCollectionViewFlowLayout.swift */,
 				8B252E411DE55B9400F8CA3C /* JCMenuCell.swift */,
 				8B252E3D1DE53E9700F8CA3C /* DIYButton.swift */,
 				8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */,
@@ -747,6 +750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B41EE431E0A73D400A2FC8F /* ZXCollectionViewFlowLayout.swift in Sources */,
 				8B252E441DE56B3A00F8CA3C /* JCMenuHeaderViewModel.swift in Sources */,
 				8B930E7B1DE3D7A100A09227 /* AppDelegate.swift in Sources */,
 				8B930EC21DE3DA9F00A09227 /* JCRightViewModel.swift in Sources */,

@@ -15,15 +15,28 @@ class JCMenuHeaderView: UIView {
     
     // collectionView
     fileprivate lazy var headerCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout();
-        layout.scrollDirection = .horizontal;
-        layout.itemSize = CGSize(width: realValue(value: 180/2), height: realValue(value: 56/2));
-        layout.minimumLineSpacing = realValue(value: 0);
+        let layout = ZXCollectionViewWaterLayout();
+        layout.cellWidthCallBack = {
+            (indexPath) -> (CGFloat?) in
+            
+            let model = self.menuHeaderModelArray[indexPath.row];
+            var attribute = [String: Any]();
+            attribute[NSFontAttributeName] = Font(size: 32/2);
+            guard let name = model.name else {
+                return 0;
+            }
+            
+            let margin = realValue(value: 116/2 + 10/2);
+            
+            let width = (name as NSString).size(attributes: attribute).width;
+            return width + margin;
+        }
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: layout);
         collectionView.backgroundColor = UIColor.clear;
         collectionView.dataSource = self;
         collectionView.delegate = self;
-        collectionView.bounces = false;
+        collectionView.showsHorizontalScrollIndicator = false;
+        collectionView.bounces = true;
         return collectionView;
     }();
     
@@ -55,6 +68,7 @@ class JCMenuHeaderView: UIView {
             self.menuHeaderModelArray.removeAll();
             // 请求成功
             self.menuHeaderModelArray += result;
+       
             // 刷新数组
             self.headerCollectionView.reloadData();
             

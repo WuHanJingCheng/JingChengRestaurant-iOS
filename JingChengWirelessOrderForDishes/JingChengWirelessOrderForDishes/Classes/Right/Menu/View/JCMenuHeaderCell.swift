@@ -8,6 +8,7 @@
 
 import UIKit
 
+let margin = realValue(value: 28/2);
 
 class JCMenuHeaderCell: UICollectionViewCell {
     
@@ -15,10 +16,11 @@ class JCMenuHeaderCell: UICollectionViewCell {
     // DIYButton
     lazy var menuHeaderBtn: DIYButton = {
         let button = DIYButton(type: .custom);
-        button.setBackgroundImage(UIImage.imageWithName(name: "menuHeader_btn_background_normal"), for: .normal);
-        button.setBackgroundImage(UIImage.imageWithName(name: "menuHeader_btn_background_selected"), for: .selected);
+        button.setBackgroundImage(UIImage.resizeImage(imageName: "menuHeader_btn_background_normal"), for: .normal);
+        button.setBackgroundImage(UIImage.resizeImage(imageName: "menuHeader_btn_background_selected"), for: .selected);
         button.clipsToBounds = true;
         button.addTarget(self, action: #selector(menuHeaderBtnClick(button:)), for: .touchUpInside);
+        button.contentEdgeInsets = UIEdgeInsets.init(top: margin, left: margin, bottom: margin, right: margin);
         return button;
     }();
     
@@ -86,10 +88,11 @@ class JCMenuHeaderCell: UICollectionViewCell {
         super.layoutSubviews();
         
         let height = bounds.size.height;
+        let width = bounds.size.width;
         
         let menuHeaderBtnX = realValue(value: 10/2);
         let menuHeaderBtnY = realValue(value: 0);
-        let menuHeaderBtnW = realValue(value: 160/2);
+        let menuHeaderBtnW = width - menuHeaderBtnX * CGFloat(2);
         let menuHeaderBtnH = height;
         menuHeaderBtn.frame = CGRect(x: menuHeaderBtnX, y: menuHeaderBtnY, width: menuHeaderBtnW, height: menuHeaderBtnH);
         
