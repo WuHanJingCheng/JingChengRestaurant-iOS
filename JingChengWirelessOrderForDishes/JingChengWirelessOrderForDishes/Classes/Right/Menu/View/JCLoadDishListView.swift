@@ -38,8 +38,8 @@ class JCLoadDishListView: UIView {
         let height = bounds.size.height;
         
         // 设置loadView的frame
-        let loadViewW = realValue(value: 250);
-        let loadViewH = realValue(value: 222);
+        let loadViewW = realValue(value: 400);
+        let loadViewH = realValue(value: 300);
         let loadViewX = (width - loadViewW)/2 - realValue(value: 50);
         let loadViewY = (height - loadViewH)/2 - realValue(value: 50);
         loadView.frame = CGRect(x: loadViewX, y: loadViewY, width: loadViewW, height: loadViewH);

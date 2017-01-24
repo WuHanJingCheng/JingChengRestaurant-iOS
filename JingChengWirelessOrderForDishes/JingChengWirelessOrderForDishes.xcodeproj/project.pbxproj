@@ -18,7 +18,6 @@
 		8B420A601DEC1D1A00194B32 /* JCDishDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */; };
 		8B5158931E3640CD005F0DA3 /* JCLoadDishListFairuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5158911E3640CD005F0DA3 /* JCLoadDishListFairuleView.swift */; };
 		8B5158941E3640CD005F0DA3 /* JCLoadDishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5158921E3640CD005F0DA3 /* JCLoadDishListView.swift */; };
-		8B5158981E365111005F0DA3 /* loaddishlist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B5158971E365111005F0DA3 /* loaddishlist.gif */; };
 		8B5D7A011DED66C60088B73A /* JCEmptyBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D7A001DED66C60088B73A /* JCEmptyBackground.swift */; };
 		8B930E7B1DE3D7A100A09227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B930E7A1DE3D7A100A09227 /* AppDelegate.swift */; };
 		8B930E821DE3D7A100A09227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B930E811DE3D7A100A09227 /* Assets.xcassets */; };
@@ -40,6 +39,7 @@
 		8B938A991DE67CAE00DC609C /* JCOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B938A981DE67CAE00DC609C /* JCOrderCell.swift */; };
 		8B938A9B1DE6D00900DC609C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B938A9A1DE6D00900DC609C /* API.swift */; };
 		8B938A9D1DE6DF9A00DC609C /* JCDishManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B938A9C1DE6DF9A00DC609C /* JCDishManager.swift */; };
+		8B93EE9A1E36EAEE00FD0572 /* loaddishlist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B93EE991E36EAEE00FD0572 /* loaddishlist.gif */; };
 		8B9514D61DE51E7D008D4D63 /* JCMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514D51DE51E7D008D4D63 /* JCMenuController.swift */; };
 		8B9514D81DE51E90008D4D63 /* JCRecommendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514D71DE51E90008D4D63 /* JCRecommendController.swift */; };
 		8B9514DA1DE51EAE008D4D63 /* JCOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9514D91DE51EAE008D4D63 /* JCOrderController.swift */; };
@@ -85,7 +85,6 @@
 		8B420A5F1DEC1D1A00194B32 /* JCDishDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDishDetailView.swift; sourceTree = "<group>"; };
 		8B5158911E3640CD005F0DA3 /* JCLoadDishListFairuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLoadDishListFairuleView.swift; sourceTree = "<group>"; };
 		8B5158921E3640CD005F0DA3 /* JCLoadDishListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCLoadDishListView.swift; sourceTree = "<group>"; };
-		8B5158971E365111005F0DA3 /* loaddishlist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loaddishlist.gif; sourceTree = "<group>"; };
 		8B5D7A001DED66C60088B73A /* JCEmptyBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCEmptyBackground.swift; sourceTree = "<group>"; };
 		8B930E771DE3D7A100A09227 /* JingChengWirelessOrderForDishes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingChengWirelessOrderForDishes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B930E7A1DE3D7A100A09227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		8B938A981DE67CAE00DC609C /* JCOrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCOrderCell.swift; sourceTree = "<group>"; };
 		8B938A9A1DE6D00900DC609C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = Header/API.swift; sourceTree = "<group>"; };
 		8B938A9C1DE6DF9A00DC609C /* JCDishManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCDishManager.swift; sourceTree = "<group>"; };
+		8B93EE991E36EAEE00FD0572 /* loaddishlist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loaddishlist.gif; sourceTree = "<group>"; };
 		8B9514D51DE51E7D008D4D63 /* JCMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCMenuController.swift; sourceTree = "<group>"; };
 		8B9514D71DE51E90008D4D63 /* JCRecommendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCRecommendController.swift; sourceTree = "<group>"; };
 		8B9514D91DE51EAE008D4D63 /* JCOrderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JCOrderController.swift; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 				8B930EA81DE3DA0E00A09227 /* Classes */,
 				8B930E811DE3D7A100A09227 /* Assets.xcassets */,
 				8B930E831DE3D7A100A09227 /* LaunchScreen.storyboard */,
+				8B93EE991E36EAEE00FD0572 /* loaddishlist.gif */,
 				8B930E861DE3D7A100A09227 /* Info.plist */,
-				8B5158971E365111005F0DA3 /* loaddishlist.gif */,
 				8B3F54BF1E34A11400A33FEB /* JCLeftData.json */,
 			);
 			path = JingChengWirelessOrderForDishes;
@@ -688,10 +688,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5158981E365111005F0DA3 /* loaddishlist.gif in Resources */,
 				8B930E851DE3D7A100A09227 /* LaunchScreen.storyboard in Resources */,
 				8B3F54C01E34A11400A33FEB /* JCLeftData.json in Resources */,
 				8B930E821DE3D7A100A09227 /* Assets.xcassets in Resources */,
+				8B93EE9A1E36EAEE00FD0572 /* loaddishlist.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

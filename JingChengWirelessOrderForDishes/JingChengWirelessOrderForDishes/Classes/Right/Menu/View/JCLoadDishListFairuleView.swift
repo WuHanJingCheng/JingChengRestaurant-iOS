@@ -79,21 +79,21 @@ class JCLoadDishListFairuleView: UIView {
         // 设置icon的frame
         let iconW = realValue(value: 198/2);
         let iconH = realValue(value: 256/2);
-        let iconX = (width - iconW)/2 - realValue(value: 96);
-        let iconY = realValue(value: 518/2);
+        let iconX = (width - iconW)/2 - realValue(value: 50);
+        let iconY = realValue(value: 518/2 - 50);
         icon.frame = CGRect(x: iconX, y: iconY, width: iconW, height: iconH);
         
         // 设置提示label
         let textLabelW = calculateWidth(title: textLabel.text ?? "", fontSize: 32/2, maxWidth: realValue(value: 200))!;
         let textLabelH = realValue(value: 32/2);
-        let textLabelX = (width - textLabelW)/2 - realValue(value: 96);
+        let textLabelX = (width - textLabelW)/2 - realValue(value: 50);
         let textLabelY = icon.frame.maxY + realValue(value: 20/2);
         textLabel.frame = CGRect(x: textLabelX, y: textLabelY, width: textLabelW, height: textLabelH);
         
         // 设置重加载按钮
         let reloadBtnW = iconW;
         let reloadBtnH = realValue(value: 36/2);
-        let reloadBtnX = (width - reloadBtnW)/2 - realValue(value: 96);
+        let reloadBtnX = (width - reloadBtnW)/2 - realValue(value: 50);
         let reloadBtnY = textLabel.frame.maxY + realValue(value: 30/2);
         reloadBtn.frame = CGRect(x: reloadBtnX, y: reloadBtnY, width: reloadBtnW, height: reloadBtnH);
         
