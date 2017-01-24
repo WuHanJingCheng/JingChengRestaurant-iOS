@@ -377,7 +377,7 @@ class JCOrderController: UIViewController {
         var index: Int = 0;
         let _ = orderModelArray.map({
             (element) in
-            if element.dish_id == model.dish_id {
+            if element.DishId == model.DishId {
                 orderModelArray.remove(at: index);
                 let tempIndexPath = IndexPath(row: index, section: 0);
                 tableView.deleteRows(at: [tempIndexPath], with: .top);
@@ -482,9 +482,9 @@ extension JCOrderController: UITableViewDataSource, UITableViewDelegate {
             let resultModel = JCDishManager.findDish(model: currentModel);
             if resultModel == nil {
                 currentModel.number = 0;
-                cell?.model = currentModel;
+                cell?.changeNumberLabel(model: currentModel);
             } else {
-                cell?.model = resultModel;
+                cell?.changeNumberLabel(model: resultModel!);
             }
             
             // 更新UI
@@ -509,8 +509,8 @@ extension JCOrderController: UITableViewDataSource, UITableViewDelegate {
                     self?.tableView.deleteRows(at: [indexPath], with: .top);
                     // 更新序号，更新总价格
                     self?.updateUI();
-                } else if element.dish_id == currentModel.dish_id {
-                    self?.tableView.reloadData();
+                } else if element.DishId == currentModel.DishId {
+                    cell.changeNumberLabel(model: currentModel);
                     self?.updateUI();
                 }
                 index += 1;

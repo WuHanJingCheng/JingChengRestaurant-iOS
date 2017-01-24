@@ -10,7 +10,7 @@ import UIKit
 
 class JCLeftModel: NSObject {
     
-    var img_url: String?;
+    var picture: String?;
     var name: String?;
     var isRedIcon: Bool = false;
     var isShow: Bool = false;
@@ -20,7 +20,7 @@ class JCLeftModel: NSObject {
     class func modelWidthDic(dict: [String: Any]) -> JCLeftModel {
         
         let model = JCLeftModel();
-        model.img_url = dict["img_url"] as? String ?? "";
+        model.picture = dict["picture"] as? String ?? "";
         model.name = dict["name"] as? String ?? "";
         return model;
     }

@@ -75,20 +75,15 @@ class JCLeftController: UIViewController {
         
         // 发送请求
         let leftViewModel = JCLeftViewModel();
-        leftViewModel.fetchLeftDataFromServer(successCallBack: { (result) in
-            // 请求成功后的回调
-            // 情况数组
+        
+        leftViewModel.fetchJsonDataFromLocal { (results) in
+            // 清空数组
             self.leftModelArray.removeAll();
-            // 更新数组
-            self.leftModelArray += result;
-            // 刷新数据
+            // 拼接数据
+            self.leftModelArray += results;
+            // 刷新UI
             self.tableView.reloadData();
-            
-            }, failureCallBack: {
-                (error) in
-                // 请求失败后的回调
-                print("请求失败", error);
-        });
+        }
         
         // 添加通知监听份数的变化
         NotificationCenter.default.addObserver(self, selector: #selector(updateRedIconNumber), name: ChangeRedIconNumberNotification, object: nil);
@@ -237,15 +232,23 @@ extension JCLeftController: UITableViewDataSource, UITableViewDelegate {
     // 改变三角形的显示和隐藏
     private func changeTrianglePosition(_ model: JCLeftModel) -> Void {
         
-        let _ = leftModelArray.map({
+        
+        let _ = leftModelArray.enumerated().map({
             (leftModel) in
-            leftModel.isShow = false;
+            
+            if leftModel.element.picture == model.picture {
+                leftModel.element.isShow = true;
+            } else {
+                leftModel.element.isShow = false;
+            }
+            
+            let indexPath = IndexPath(row: leftModel.offset, section: 0);
+            guard let cell = self.tableView.cellForRow(at: indexPath) as? JCLeftCell else {
+                return;
+            }
+            // 改变选中状态的位置
+            cell.changeSelectedPosition(model: leftModel.element);
         });
-        
-        model.isShow = true;
-        
-        // 刷新状态
-        tableView.reloadData();
     }
 }
 

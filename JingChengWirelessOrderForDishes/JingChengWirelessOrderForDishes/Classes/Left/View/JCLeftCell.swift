@@ -55,8 +55,10 @@ class JCLeftCell: UITableViewCell {
             
             if isShow == true {
                 background.image = UIImage.imageWithName(name: "left_cell_background");
+                nameLabel.textColor = RGBWithHexColor(hexColor: 0xf5aa3f);
             } else {
                 background.image = UIImage.imageWithName(name: "");
+                nameLabel.textColor = RGBWithHexColor(hexColor: 0x191919);
             }
         }
     }
@@ -84,8 +86,8 @@ class JCLeftCell: UITableViewCell {
             }
             
             // 加载图片
-            if let img_url = model.img_url {
-                icon.zx_setImageWithURL(img_url);
+            if let picture = model.picture {
+                icon.image = UIImage.imageWithName(name: picture);
             }
             // 加载文本
             if let name = model.name {
@@ -141,6 +143,14 @@ class JCLeftCell: UITableViewCell {
         // 更新frame
         layoutIfNeeded();
         setNeedsLayout();
+    }
+    
+    // 改变选中状态
+    func changeSelectedPosition(model: JCLeftModel) -> Void {
+        
+        // 是否选中背景
+        isShow = model.isShow;
+ 
     }
     
     // 设置子控件的frame

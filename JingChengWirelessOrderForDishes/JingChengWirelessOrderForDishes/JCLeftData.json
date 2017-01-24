@@ -1,0 +1,18 @@
+[
+ 
+     {
+        "picture": "menulist_recommend",
+        "name": "推荐"
+     },
+     
+     {
+        "picture": "menulist_menu",
+        "name": "菜谱"
+     },
+     
+     {
+        "picture": "menulist_shopcar",
+        "name": "已选菜品"
+     }
+ 
+]

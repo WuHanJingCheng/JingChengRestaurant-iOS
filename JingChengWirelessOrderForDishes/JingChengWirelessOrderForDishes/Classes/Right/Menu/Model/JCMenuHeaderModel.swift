@@ -10,9 +10,16 @@ import UIKit
 
 class JCMenuHeaderModel: NSObject {
     
-    var img_url: String?;
-    var name: String?;
-    var category_url: String?;
+    
+    // 服务器字段
+    var MenuId: Int?;
+    var MenuName: String?;
+    var PictureUrl: String?;
+    var PictureUrlSelected: String?;
+    var DishUrl: String?;
+    
+    
+    // 自定义字段
     var isSelected: Bool = false;
     
     
@@ -20,9 +27,11 @@ class JCMenuHeaderModel: NSObject {
     class func modelWidthDict(dict: [String: Any]) -> JCMenuHeaderModel {
         
         let model = JCMenuHeaderModel();
-        model.img_url = dict["img_url"] as? String ?? "";
-        model.name = dict["name"] as? String ?? "";
-        model.category_url = dict["category_url"] as? String ?? "";
+        model.MenuId = dict["MenuId"] as? Int;
+        model.MenuName = dict["MenuName"] as? String;
+        model.PictureUrl = dict["PictureUrl"] as? String;
+        model.PictureUrlSelected = dict["PictureUrlSelected"] as? String;
+        model.DishUrl = dict["DishUrl"] as? String;
         return model;
     }
 

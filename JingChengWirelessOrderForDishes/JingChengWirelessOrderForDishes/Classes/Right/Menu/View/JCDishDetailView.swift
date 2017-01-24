@@ -170,21 +170,21 @@ class JCDishDetailView: UIView {
             }
             
             // 菜图片
-            if let dish_url = model.dish_url {
-                dishImage.zx_setImageWithURL(dish_url);
+            if let PictureUrlLarge = model.PictureUrlLarge {
+                dishImage.zx_setImageWithURL(PictureUrlLarge);
             }
             
             // 菜名
-            if let name = model.name {
-                dishNameLabel.text = name;
+            if let DishName = model.DishName {
+                dishNameLabel.text = DishName;
             }
             
             // 份数
             numberLabel.text = "\(model.number)";
             
             // 菜价格
-            if let price = model.price {
-                priceLabel.text = String(format: "￥%.2f", price);
+            if let Price = model.Price {
+                priceLabel.text = String(format: "￥%.2f", Price);
             }
         }
     }

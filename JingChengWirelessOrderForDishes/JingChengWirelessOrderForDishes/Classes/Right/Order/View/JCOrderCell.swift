@@ -101,18 +101,18 @@ class JCOrderCell: UITableViewCell {
             serialNumberLabel.text = "\(model.serialNumber)";
             
             // 菜图片
-            if let dish_url = model.dish_url {
-                dishImage.zx_setImageWithURL(dish_url);
+            if let Thumbnail = model.Thumbnail {
+                dishImage.zx_setImageWithURL(Thumbnail);
             }
             
             // 菜名
-            if let name = model.name {
-                dishNameLabel.text = name;
+            if let DishName = model.DishName {
+                dishNameLabel.text = DishName;
             }
             
             // 价格
-            if let price = model.price {
-                priceLabel.text = String(format: "￥%.2f", price);
+            if let Price = model.Price {
+                priceLabel.text = String(format: "￥%.2f", Price);
             }
             
             // 份数
@@ -164,6 +164,13 @@ class JCOrderCell: UITableViewCell {
         // 添加底部线条
         contentView.addSubview(bottomLine);
         
+    }
+    
+    // 改变份数
+    func changeNumberLabel(model: JCDishModel) -> Void {
+        
+        // 份数
+        numberLabel.text = "\(model.number)";
     }
     
     // 监听减号按钮的点击

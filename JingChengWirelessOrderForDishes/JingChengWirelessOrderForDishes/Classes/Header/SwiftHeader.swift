@@ -14,6 +14,14 @@ import MJRefresh
 let kScreenWidth = UIScreen.main.bounds.size.width;
 let kScreenHeight = UIScreen.main.bounds.size.height;
 
+
+/*******餐厅信息**********/
+let restaurantId: Int = 65;
+/*******餐厅信息**********/
+
+
+
+
 // 通知名称
 let ChangeRedIconNumberNotification = NSNotification.Name("ChangeRedIconNumberNotification");
 let ChangeCategoryNotification = NSNotification.Name("ChangeCategoryNotification");
@@ -155,16 +163,15 @@ func realValue(value: CGFloat) -> CGFloat {
     return realValue;
 }
 
-//// 延迟执行
-//func delayCallBack(_ time : CGFloat, callBack : (() -> ())?) -> Void {
-//    
-//    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(__int64_t(time) * __int64_t(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
-//        
-//        if let callBack = callBack {
-//            callBack();
-//        }
-//    })
-//}
+// 延迟执行
+func delayCallBack(_ time : CGFloat, callBack : @escaping() -> ()) -> Void {
+    
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(__int64_t(time) * __int64_t(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
+        
+        callBack();
+    })
+}
+
 
 // 设置圆角
 func setRoundCorner(currentView: UIView, cornerRadii: CGSize) -> Void {

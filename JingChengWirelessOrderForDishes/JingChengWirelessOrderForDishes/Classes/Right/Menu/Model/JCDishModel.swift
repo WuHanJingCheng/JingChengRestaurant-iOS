@@ -10,12 +10,21 @@ import UIKit
 
 class JCDishModel: NSObject {
     
-    var dish_url: String?;
-    var name: String?;
-    var price: CGFloat?;
-    var dish_id: Int?;
-    var width: CGFloat?;
-    var height: CGFloat?;
+    // 服务器字段
+    var DishId: Int?;
+    var DishName: String?;
+    var Price: CGFloat?;
+    var Thumbnail: String?;
+    var PictureUrlLarge: String?;
+    var Recommanded: Bool?;
+    var Detail: String?;
+    
+    
+    
+    
+    
+    
+    //  自定义字段
     var isAddBtn: Bool = true;
     var number: Int = 0;// 份数
     var serialNumber: Int = 0;// 序号
@@ -25,12 +34,13 @@ class JCDishModel: NSObject {
     class func modelWithDict(dict: [String: Any]) -> JCDishModel {
         
         let model = JCDishModel();
-        model.dish_id = dict["dish_id"] as? Int ?? 0;
-        model.dish_url = dict["dish_url"] as? String ?? "";
-        model.name = dict["name"] as? String ?? "";
-        model.price = dict["price"] as? CGFloat ?? 0.0;
-        model.width = dict["width"] as? CGFloat ?? 0.0;
-        model.height = dict["height"] as? CGFloat ?? 0.0;
+        model.DishId = dict["DishId"] as? Int;
+        model.DishName = dict["DishName"] as? String;
+        model.Price = dict["Price"] as? CGFloat;
+        model.Thumbnail = dict["Thumbnail"] as? String;
+        model.PictureUrlLarge = dict["PictureUrlLarge"] as? String;
+        model.Recommanded = dict["Recommanded"] as? Bool;
+        model.Detail = dict["Detail"] as? String;
         return model;
     }
 

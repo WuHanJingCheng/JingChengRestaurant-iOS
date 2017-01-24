@@ -15,43 +15,35 @@ class JCMenuHeaderViewModel: NSObject {
     }
 
     // 从服务器获取分类列表的数据
-    func fetchMenuListDataFromServer(successCallBack: @escaping(_ result: [JCMenuHeaderModel]) -> (), failureCallBack: @escaping(_ error: Error) -> ()) -> Void {
+    func fetchMenuListDataFromServer(successCallBack: @escaping(_ result: [JCMenuHeaderModel]) -> (), failureCallBack: @escaping(_ error: Error?) -> ()) -> Void {
         
         let mgr = HttpManager.shared;
         mgr.requestSerializer.timeoutInterval = 10;
-        mgr.request(.GET, urlString: categoryListAPI, parameters: nil, finished: { (result, error) in
+        mgr.request(.GET, urlString: submenulistUrl(restaurantId: restaurantId), parameters: nil, finished: { (dataTask, result, error) in
             
-            var result: [String: Any]? = result as? [String: Any];
-            
-            if let error = error {
-                // 请求失败
-                failureCallBack(error);
-                // 请求失败
-                // 从缓存获取数据
-                result = CacheManager.shared.getResultFromCache("menuHeaderData.data") as? [String: Any];
-            } else {
-                
-                // 缓存数据
-                CacheManager.shared.cacheResult(result, fileName: "menuHeaderData.data");
-            }
-            
-            if let result = result {
-                
-                guard let resultArray = result["results"] as? [[String: Any]] else {
+            if let dataTask = dataTask {
+                guard let response = dataTask.response as? HTTPURLResponse else {
                     return;
                 }
                 
-                var menuHeaderModelArray = [JCMenuHeaderModel]();
-                
-                let _ = resultArray.enumerated().map({
-                    (dict) in
-                    let model = JCMenuHeaderModel.modelWidthDict(dict: dict.element);
-                    model.isSelected = (dict.offset == 0) ? true : false;
-                    menuHeaderModelArray.append(model);
-                });
-                
-                // 请求成功
-                successCallBack(menuHeaderModelArray);
+                if response.statusCode == 200 || response.statusCode == 201 || response.statusCode == 304 {
+                    
+                    guard let results = result as? [[String: Any]] else {
+                        return;
+                    }
+                    
+                    var menulist = [JCMenuHeaderModel]();
+                    _ = results.enumerated().map({
+                        (dict) in
+                        let model = JCMenuHeaderModel.modelWidthDict(dict: dict.element);
+                        model.isSelected = (dict.offset == 0) ? true : false;
+                        menulist.append(model);
+                    });
+                    // 请求成功
+                    successCallBack(menulist);
+                } else {
+                    failureCallBack(error);
+                }
             }
         })
     }

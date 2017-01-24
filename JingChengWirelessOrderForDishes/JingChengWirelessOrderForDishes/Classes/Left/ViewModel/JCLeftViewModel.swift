@@ -10,47 +10,37 @@ import UIKit
 
 class JCLeftViewModel: NSObject {
     
-    
-    // 从服务器请求数据
-    func fetchLeftDataFromServer(successCallBack: @escaping(_ result: [JCLeftModel]) -> (), failureCallBack: @escaping(_ error: Error) -> ()) -> Void {
+    // 从本地获取JSON数据
+    func fetchJsonDataFromLocal(successCallBack: @escaping(_ menulist: [JCLeftModel]) -> ()) -> Void {
         
-        let mgr = HttpManager.shared;
-        mgr.requestSerializer.timeoutInterval = 10;
-        mgr.request(.GET, urlString: leftMenuListAPI, parameters: nil, finished: { (result, error) in
+        
+        DispatchQueue.global().async {
             
-            var result: [String: Any]? = result as? [String: Any];
+            guard let url = Bundle.main.url(forResource: "JCLeftData", withExtension: "json") else {
+                return;
+            }
+            guard let data = try? Data.init(contentsOf: url) else {
+                return;
+            };
             
-            if let error = error {
-                failureCallBack(error);
-                // 显示请求错误
-                print("请求失败, 或没有网络");
-                // 加载缓存
-                result = CacheManager.shared.getResultFromCache("leftMenuData.data") as? [String: Any];
-            } else {
-                
-                // 缓存数据
-                CacheManager.shared.cacheResult(result, fileName: "leftMenuData.data");
+            guard let results = try!JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] else {
+                return;
             }
             
-            if let result = result {
-     
-                guard let resultArray = result["results"] as? [[String: Any]] else {
-                    return;
-                }
+            var menulist = [JCLeftModel]();
+            _ = results.enumerated().map({
+                (dict) in
                 
-                var leftModelArray = [JCLeftModel]();
-                let _ = resultArray.enumerated().map({
-                    (dict) in
-                    let model = JCLeftModel.modelWidthDic(dict: dict.element);
-                    model.isRedIcon = (dict.offset == 2) ? true : false;
-                    model.isShow = (dict.offset == 1) ? true : false;
-                    leftModelArray.append(model);
-                });
-                
-                // 解析成功
-                successCallBack(leftModelArray);
-            }
+                let model = JCLeftModel.modelWidthDic(dict: dict.element);
+                model.isRedIcon = (dict.offset == 2) ? true : false;
+                model.isShow = (dict.offset == 1) ? true : false;
+                menulist.append(model);
+            });
             
-        });
+            DispatchQueue.main.async {
+                
+                successCallBack(menulist);
+            }
+        }
     }
 }

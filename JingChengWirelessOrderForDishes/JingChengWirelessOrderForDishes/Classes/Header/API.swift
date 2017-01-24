@@ -14,7 +14,18 @@ import Foundation
 let leftMenuListAPI = "http://ac-otjqboap.clouddn.com/8e76e15a3ac53fe81588.json";
 
 // 分类列表
-let categoryListAPI = "http://ac-otjqboap.clouddn.com/3b13c2b77b51e75c3ed0.json";
+func submenulistUrl(restaurantId: Int) -> String {
+    
+    let url = "https://jingchengrestaurant.azurewebsites.net/api/Restaurant/\(restaurantId)/menu";
+    return url;
+}
 
-// 肉类详情
-let subMenuMeatAPI = "http://ac-otjqboap.clouddn.com/201fd97d0e57a3850bbf.json";
+
+
+
+/************菜品的URL**************/
+func dishlistUrl(MenuId: Int) -> String {
+    
+    let url = "https://jingchengrestaurant.azurewebsites.net/api/menu/\(MenuId)/dish";
+    return url;
+}

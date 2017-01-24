@@ -37,15 +37,38 @@ class JCMenuHeaderCell: UICollectionViewCell {
             
             menuHeaderBtn.isSelected = menuHeaderModel.isSelected;
             
-            if let img_url = menuHeaderModel.img_url {
-                menuHeaderBtn.zx_setImageWidthURL(img_url, forState: .normal);
+            if let PictureUrl = menuHeaderModel.PictureUrl {
+                menuHeaderBtn.zx_setImageWidthURL(PictureUrl, forState: .normal);
             }
             
-            if let name = menuHeaderModel.name {
-                menuHeaderBtn.setTitle(name, for: .normal);
+            if let PictureUrlSelected = menuHeaderModel.PictureUrlSelected {
+                menuHeaderBtn.zx_setImageWidthURL(PictureUrlSelected, forState: .selected);
+            }
+            
+            if menuHeaderModel.isSelected == false {
+                menuHeaderBtn.setTitleColor(RGBWithHexColor(hexColor: 0x343434), for: .normal);
+            } else {
+                menuHeaderBtn.setTitleColor(RGBWithHexColor(hexColor: 0xf8c67e), for: .normal);
+            }
+            
+            if let MenuName = menuHeaderModel.MenuName {
+                menuHeaderBtn.setTitle(MenuName, for: .normal);
             }
         }
     }
+    
+    // 更新选中状态
+    func updateSelectedStatus(model: JCMenuHeaderModel) -> Void {
+        
+        menuHeaderBtn.isSelected = model.isSelected;
+        
+        if model.isSelected == false {
+            menuHeaderBtn.setTitleColor(RGBWithHexColor(hexColor: 0x343434), for: .normal);
+        } else {
+            menuHeaderBtn.setTitleColor(RGBWithHexColor(hexColor: 0xf8c67e), for: .normal);
+        }
+    }
+    
     // 更新cell状态
     var changeOtherBtnStatusCallBack: ((_ model: JCMenuHeaderModel) -> ())?;
    

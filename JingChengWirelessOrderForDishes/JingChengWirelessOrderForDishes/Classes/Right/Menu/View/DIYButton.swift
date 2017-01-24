@@ -27,10 +27,11 @@ class DIYButton: UIButton {
         
         let image = self.image(for: .normal);
         guard let imageSize = image?.size else {return .zero};
+        
+        let imageH = realValue(value: 40/2);
+        let imageW = imageH/imageSize.height * imageSize.width;
         let imageX = realValue(value: 15/2);
-        let imageY = (bounds.size.height - imageSize.height/2)/2;
-        let imageW = imageSize.width/2;
-        let imageH = imageSize.height/2;
+        let imageY = (bounds.size.height - imageH)/2;
         let rect = CGRect(x: imageX,y : imageY, width: imageW, height: imageH);
         return rect;
 
@@ -40,10 +41,12 @@ class DIYButton: UIButton {
         
         let image = self.image(for: .normal);
         guard let imageSize = image?.size else {return .zero};
+        let imageH = realValue(value: 40/2);
+        let imageW = imageH/imageSize.height * imageSize.width;
         guard let title = self.title(for: .normal) else {return .zero};
         let titleWidth = calculateWidth(title: title, fontSize: 32/2, maxWidth: realValue(value: 300)) ?? 0;
         let titleHeight = realValue(value: 32/2);
-        let titleX = realValue(value: 30/2) + imageSize.width/2;
+        let titleX = realValue(value: 30/2) + imageW;
         let titleY = (bounds.size.height - titleHeight)/2;
         let rect = CGRect(x: titleX, y: titleY, width: titleWidth, height: titleHeight);
         return rect;

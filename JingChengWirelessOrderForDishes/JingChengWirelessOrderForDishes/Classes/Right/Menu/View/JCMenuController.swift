@@ -32,6 +32,8 @@ class JCMenuController: UIViewController {
     
     // 懒加载数组
     fileprivate lazy var menuModelArray: [JCDishModel] = [JCDishModel]();
+    
+    var task: URLSessionDataTask?;
 
     // 释放
     deinit {
@@ -49,19 +51,24 @@ class JCMenuController: UIViewController {
         
         // 注册cell
         collectionView.register(JCMenuCell.self, forCellWithReuseIdentifier: menuCellIdentifier);
+       
         
-        // 请求肉类数据
-        let menuHeaderModel = JCMenuHeaderModel();
-        menuHeaderModel.category_url = subMenuMeatAPI;
-        menuHeaderModel.name = "肉类";
-        fetchCategoryDataFromServer(menuHeaderModel: menuHeaderModel);
+        // 加载第一个分类的菜品数据
+        menuHeader.successCallBack = { [weak self]
+            (model) in
+            
+            self?.fetchCategoryDataFromServer(menuHeaderModel: model);
+        }
         
          // 更新分类内容
         menuHeader.updateCategoryDetailDataCallBack = { [weak self]
             (model) in
         
             let indexPath = IndexPath(row: 0, section: 0);
-            self?.collectionView.scrollToItem(at: indexPath, at: .top, animated: false);
+            if indexPath.row < (self?.menuModelArray.count)! {
+                self?.collectionView.scrollToItem(at: indexPath, at: .top, animated: false);
+            }
+            
             // 请求分类数据
             self?.fetchCategoryDataFromServer(menuHeaderModel: model);
         }
@@ -70,11 +77,24 @@ class JCMenuController: UIViewController {
     // 请求分类数据
     private func fetchCategoryDataFromServer(menuHeaderModel: JCMenuHeaderModel) -> Void {
         
+        // 取消网络请求
+        task?.cancel();
+        // 清空数组
+        menuModelArray.removeAll();
+        // 刷新UI
+        collectionView.reloadData();
+        // 添加加载视图
+        let loadView = JCLoadDishListView();
+        loadView.frame = collectionView.frame;
+        self.view.addSubview(loadView);
+        
         let menuViewModel = JCMenuViewModel();
-        menuViewModel.fetchMenuDetailDataFromServer(menuHeaderModel: menuHeaderModel, successCallBack: {
+        task = menuViewModel.fetchMenuDetailDataFromServer(menuHeaderModel: menuHeaderModel, successCallBack: {
             (result) in
             // 清空数组
             self.menuModelArray.removeAll();
+            // 移除加载视图
+            loadView.removeFromSuperview();
             // 请求成功的回调
             // 更新数组
             self.menuModelArray += result;
@@ -83,8 +103,75 @@ class JCMenuController: UIViewController {
             
             }, failureCallBack: {
                 (error) in
+                
+                // 移除加载视图
+                loadView.removeFromSuperview();
                 // 请求失败后的回调
-                print(error);
+                if let error = error {
+                    print(error.localizedDescription);
+                
+                    if error.localizedDescription == "cancelled" {
+                        return;
+                    } else if error.localizedDescription == "Request failed: not found (404)" {
+                        // 清空数组
+                        self.menuModelArray.removeAll();
+                        // 刷新UI
+                        self.collectionView.reloadData();
+                        return;
+                    }
+                }
+                
+                // 清空数组
+                self.menuModelArray.removeAll();
+                // 刷新列表
+                self.collectionView.reloadData();
+                
+                // 添加加载失败的视图
+                let loadFailure = JCLoadDishListFairuleView();
+                loadFailure.frame = self.collectionView.frame;
+                self.view.addSubview(loadFailure);
+                
+                loadFailure.reloadCallBack = { [weak self, weak loadFailure]
+                    _ in
+                    
+                    // 添加加载视图
+                    let loadView = JCLoadDishListView();
+                    loadView.frame = (self?.collectionView.frame)!;
+                    self?.view.addSubview(loadView);
+                    
+                    _ = menuViewModel.fetchMenuDetailDataFromServer(menuHeaderModel: menuHeaderModel, successCallBack: { (result) in
+                        
+                        // 清空数组
+                        self?.menuModelArray.removeAll();
+                        // 移除加载视图
+                        loadView.removeFromSuperview();
+                        // 移除加载失败的视图
+                        loadFailure?.removeFromSuperview();
+                        // 拼接数据
+                        self?.menuModelArray += result;
+                        // 刷新UI
+                        self?.collectionView.reloadData();
+                        
+                    }, failureCallBack: { (error) in
+                        
+                        // 移除加载视图
+                        loadView.removeFromSuperview();
+                        
+                        if let error = error {
+                            print(error.localizedDescription);
+                        }
+                        
+                        // 添加加载视图
+                        let loadView = JCLoadDishListView();
+                        loadView.frame = (self?.collectionView.frame)!;
+                        self?.view.addSubview(loadView);
+                        delayCallBack(2, callBack: {
+                            _ in
+                            
+                            loadView.removeFromSuperview();
+                        });
+                    })
+                }
         })
     }
 
@@ -136,8 +223,15 @@ extension JCMenuController: UICollectionViewDataSource, UICollectionViewDelegate
             guard let window = UIApplication.shared.keyWindow else {
                 return;
             }
+            // 此行代码是为了确保只有一个弹窗
+            let tempView = window.viewWithTag(5000) as? JCDishDetailView;
+            if tempView != nil {
+                return;
+            }
+            
             // 创建详情对象
             let dishDetailView = JCDishDetailView();
+            dishDetailView.tag = 5000;
             // 设置frame
             dishDetailView.frame = window.bounds;
             // 更新份数
@@ -151,6 +245,8 @@ extension JCMenuController: UICollectionViewDataSource, UICollectionViewDelegate
         
             // 添加到window上
             window.addSubview(dishDetailView);
+    
+            print("------------\(window.subviews.count)");
             
             // 添加弹出动画
             ZXAnimation.startAnimation(targetView: dishDetailView);

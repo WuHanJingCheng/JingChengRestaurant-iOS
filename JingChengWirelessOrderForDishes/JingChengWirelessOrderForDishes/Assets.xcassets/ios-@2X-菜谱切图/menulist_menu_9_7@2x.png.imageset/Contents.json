@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "食谱.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "菜谱按钮@2x.png",
       "scale" : "2x"
     },
     {

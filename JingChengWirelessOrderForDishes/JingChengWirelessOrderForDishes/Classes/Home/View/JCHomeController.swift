@@ -123,10 +123,15 @@ class JCHomeController: UIViewController {
             } else {
                 model.element.isShow = false;
             }
+            
+            let indexPath = IndexPath(row: model.offset, section: 0);
+            guard let cell = leftVc.tableView.cellForRow(at: indexPath) as? JCLeftCell else {
+                return;
+            }
+            
+            // 改变选中状态的位置
+            cell.changeSelectedPosition(model: model.element);
         });
-        
-        // 刷新状态
-        leftVc.tableView.reloadData();
     }
     
     // 更新导航栏的标题

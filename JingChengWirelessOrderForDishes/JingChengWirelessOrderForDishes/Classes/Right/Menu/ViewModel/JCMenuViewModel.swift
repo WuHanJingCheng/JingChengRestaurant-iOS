@@ -16,41 +16,42 @@ class JCMenuViewModel: NSObject {
     }
     
     // 发送请求获取分类对应的数据
-    func fetchMenuDetailDataFromServer(menuHeaderModel: JCMenuHeaderModel, successCallBack: @escaping(_ result: [JCDishModel]) -> (), failureCallBack: @escaping(_ error: Error) -> ()) -> Void {
+    func fetchMenuDetailDataFromServer(menuHeaderModel: JCMenuHeaderModel, successCallBack: @escaping(_ result: [JCDishModel]) -> (), failureCallBack: @escaping(_ error: Error?) -> ()) -> URLSessionDataTask? {
        
         let mgr = HttpManager.shared;
         mgr.requestSerializer.timeoutInterval = 10;
-        mgr.request(.GET, urlString: menuHeaderModel.category_url ?? "", parameters: nil, finished: { (result, error) in
+        let task = mgr.get(dishlistUrl(MenuId: menuHeaderModel.MenuId ?? 0), parameters: nil, progress: nil, success: {
+            (dataTask, result) in
             
-            var result: [String: Any]? = result as? [String: Any];
-      
-            if let error = error {
-                // 请求失败
-                failureCallBack(error);
-                result = CacheManager.shared.getResultFromCache("\(menuHeaderModel.name ?? "").data") as? [String: Any];
-            } else {
-                
-                // 缓存数据
-                CacheManager.shared.cacheResult(result, fileName: "\(menuHeaderModel.name ?? "").data");
+            guard let response = dataTask.response as? HTTPURLResponse else {
+                return;
             }
             
-            if let result = result {
+            if response.statusCode == 200 || response.statusCode == 201 || response.statusCode == 304 {
                 
-                guard let resultArray = result["results"] as? [[String: Any]] else {
+                guard let results = result as? [[String: Any]] else {
                     return;
-                };
+                }
                 
-                var menuViewModelArray = [JCDishModel]();
-                
-                let _ = resultArray.map({
+                var dishlist = [JCDishModel]();
+                _ = results.map({
                     (dict) in
+                    
                     let model = JCDishModel.modelWithDict(dict: dict);
-                    menuViewModelArray.append(model);
+                    dishlist.append(model);
                 });
                 
                 // 请求成功
-                successCallBack(menuViewModelArray);
+                successCallBack(dishlist);
             }
+            
+        }, failure: {
+            (dataTask, error) in
+            
+            failureCallBack(error);
+            
         })
+       
+        return task;
     }
 }

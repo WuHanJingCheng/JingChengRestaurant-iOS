@@ -47,7 +47,7 @@ class JCDishManager: NSObject {
         } else {
             
             for (index,tempModel) in mgr.dishs.enumerated() {
-                if tempModel.dish_id == model.dish_id {
+                if tempModel.DishId == model.DishId {
                     mgr.dishs.remove(at: index);
                     tempModel.number += 1;
                     tempModel.number = (tempModel.number < 100) ? tempModel.number : 99;
@@ -68,7 +68,7 @@ class JCDishManager: NSObject {
             return;
         }
         for (index, tempModel) in mgr.dishs.enumerated() {
-            if tempModel.dish_id == model.dish_id {
+            if tempModel.DishId == model.DishId {
                 tempModel.number = (tempModel.number > 0) ? (tempModel.number - 1) : 0;
                 if tempModel.number == 0 {
                     mgr.dishs.remove(at: index);
@@ -86,7 +86,7 @@ class JCDishManager: NSObject {
             return nil;
         }
         for tempModel in mgr.dishs {
-            if tempModel.dish_id == model.dish_id {
+            if tempModel.DishId == model.DishId {
                 return tempModel;
             }
         }
@@ -101,7 +101,7 @@ class JCDishManager: NSObject {
         if dishs.count == 0 {return};
         
         for (index,tempModel) in dishs.enumerated() {
-            if tempModel.dish_id == model.dish_id {
+            if tempModel.DishId == model.DishId {
                 dishs.remove(at: index);
             }
         }
@@ -116,7 +116,7 @@ class JCDishManager: NSObject {
         var amount: CGFloat = 0.0;
         let dishs = JCDishManager.shared.dishs;
         for model in dishs {
-            amount += (model.price ?? 0.0) * CGFloat(model.number);
+            amount += (model.Price ?? 0.0) * CGFloat(model.number);
         }
         return amount;
     }

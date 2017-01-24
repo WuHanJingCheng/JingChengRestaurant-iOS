@@ -30,16 +30,16 @@ class HttpManager: AFHTTPSessionManager {
 
 extension HttpManager {
     
-    func request(_ methodType : RequestType, urlString : String, parameters : [String : Any]?, finished : @escaping(_ result : Any?, _ error : Error?) -> ()) {
+    func request(_ methodType : RequestType, urlString : String, parameters : [String : Any]?, finished : @escaping(_ dataTask: URLSessionDataTask?, _ result : Any?, _ error : Error?) -> ()) {
         
         // 1.定义成功的回调闭包
         let successCallBack = { (task : URLSessionDataTask, result : Any?) -> Void in
-            finished(result, nil);
+            finished(task, result, nil);
         }
         
         // 2.定义失败的回调闭包
         let failureCallBack = { (task : URLSessionDataTask?, error : Error) -> Void in
-            finished(nil, error);
+            finished(task, nil, error);
         }
         
         // 3.发送网络请求
@@ -49,6 +49,8 @@ extension HttpManager {
             post(urlString, parameters: parameters, progress: nil, success: successCallBack, failure: failureCallBack)
         }
     }
+    
+    
 }
 
 
